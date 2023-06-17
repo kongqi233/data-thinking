@@ -1,0 +1,53 @@
+# depslib dependency file v1.0
+1687011431 source:e:\codeblocks\practice file\current_account_system\main.cpp
+	<bits/stdc++.h>
+	"ExternFile.h"
+
+1687006513 e:\codeblocks\practice file\current_account_system\test.c
+	<bits/stdc++.h>
+
+1687011262 source:e:\codeblocks\practice file\current_account_system\test.cpp
+	<bits/stdc++.h>
+	"ExternFile.h"
+
+1687007342 e:\codeblocks\practice file\current_account_system\test.cpp
+	<bits/stdc++.h>
+
+1687007608 e:\codeblocks\practice file\current_account_system\tset.h
+
+1687008945 e:\codeblocks\practice file\current_account_system\test.h
+
+1687011431 e:\codeblocks\practice file\current_account_system\externfile.h
+
+1687011769 source:e:\codeblocks\practice file\current_account_system\account_opening.cpp
+	<bits/stdc++.h>
+	"ExternFile.h"
+
+1687009742 source:e:\codeblocks\practice file\current_account_system\saving.cpp
+	<bits/stdc++.h>
+	"ExternFile.h"
+
+1687011769 source:e:\codeblocks\practice file\current_account_system\account_closure.cpp
+	<bits/stdc++.h>
+	"ExternFile.h"
+
+1687011769 source:e:\codeblocks\practice file\current_account_system\deposit.cpp
+	<bits/stdc++.h>
+	"ExternFile.h"
+
+1687011769 source:e:\codeblocks\practice file\current_account_system\withdrawal.cpp
+	<bits/stdc++.h>
+	"ExternFile.h"
+
+1687012158 source:e:\codeblocks\practice file\current_account_system\account_balance.cpp
+	<bits/stdc++.h>
+	"ExternFile.h"
+
+1687011769 source:e:\codeblocks\practice file\current_account_system\account_information.cpp
+	<bits/stdc++.h>
+	"ExternFile.h"
+
+1687011769 source:e:\codeblocks\practice file\current_account_system\transactions.cpp
+	<bits/stdc++.h>
+	"ExternFile.h"
+
