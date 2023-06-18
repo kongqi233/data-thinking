@@ -8,7 +8,7 @@
 #define OK 1
 #define ERROR 0
 #define OVERFLOW -1
-#define TRADELOG_PATH "../CAsystem/tradelog.csv"
+#define TRADELOG_PATH "../CAsystem/tradeLog.csv"
 #define ACCOUNT_PATH "../CAsystem/Account.csv"
 using namespace std;
 typedef int Status;
