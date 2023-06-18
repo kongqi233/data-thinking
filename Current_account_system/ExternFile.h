@@ -16,12 +16,13 @@ enum Sex{
     MALE,FEMALE
 };
 struct Account{
-    string name;//名字
+    long long SID;//系统内部标识,11位
+    string name;//名字，限长30
     Sex sex;//性别
-    string telephone;//手机号
-    short int cardID[4];//卡号
-    string IDnumber;//身份证号
-    string password;//密码
+    string telephone;//手机号，定长11
+    short int cardID[4];//卡号，定长16
+    string IDnumber;//身份证号，定长18
+    string password;//密码，定长6
     double balance;//余额
     short int year,month,day,hour,minute,second;//时间
 };
