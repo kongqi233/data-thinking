@@ -5,6 +5,7 @@
 #define EXTERNFILE_H
 
 #include<bits/stdc++.h>
+#include<myVector.cpp>
 #define OK 1
 #define ERROR 0
 #define OVERFLOW -1
