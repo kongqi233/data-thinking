@@ -29,7 +29,8 @@ struct Account{
     string IDnumber;//身份证号，定长18
     string password;//密码，定长6
     double balance;//余额
-    short int year,month,day,hour,minute,second;//时间
+    short int year,month,day,hour,minute,second;//开户时间
+    short int xyear,xmonth,xday,xhour,xminute,xsecond;//销户时间
 };
 Status Account_Balance(Account&);
 
