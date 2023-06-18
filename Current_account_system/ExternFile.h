@@ -10,13 +10,18 @@
 #define OVERFLOW -1
 #define TRADELOG_PATH "../CAsystem/tradeLog.csv"
 #define ACCOUNT_PATH "../CAsystem/Account.csv"
+#define NAME_MAX_SIZE 30
+#define SID_SIZE 11
+#define TELEPHONE_SIZE 11
+#define IDNUMBER_SIZE 18
+#define PASSWORD_SIZE 6
 using namespace std;
 typedef int Status;
 enum Sex{
     MALE,FEMALE
 };
 struct Account{
-    long long SID;//系统内部标识,11位
+    string SID;//系统内部标识,定长11位
     string name;//名字，限长30
     Sex sex;//性别
     string telephone;//手机号，定长11
