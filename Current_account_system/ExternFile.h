@@ -31,5 +31,6 @@ struct Account{
     double balance;//余额
     short int year,month,day,hour,minute,second;//时间
 };
+Status Account_Balance(Account&);
 
 #endif
