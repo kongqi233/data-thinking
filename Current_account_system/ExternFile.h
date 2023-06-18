@@ -33,5 +33,6 @@ struct Account{
     short int xyear,xmonth,xday,xhour,xminute,xsecond;//销户时间
 };
 Status Account_Balance(Account&);
+Status Account_Opening(void);
 
 #endif
