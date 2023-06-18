@@ -13,7 +13,7 @@ typedef int Status;
 enum Sex{
     MALE,FEMALE
 };
-typedef struct{
+struct Account{
     string name;//名字
     Sex sex;//性别
     string telephone;//手机号
@@ -22,6 +22,6 @@ typedef struct{
     string password;//密码
     double balance;//余额
     short int year,month,day,hour,minute,second;//时间
-} Account;
+};
 
 #endif
