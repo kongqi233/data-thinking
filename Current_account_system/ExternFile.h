@@ -33,6 +33,20 @@ struct Account{
     short int year,month,day,hour,minute,second;//开户时间
     short int xyear,xmonth,xday,xhour,xminute,xsecond;//销户时间
 };
+enum TradeType{
+    IN,OUT,INTER
+};
+struct TradeInfo{
+    string tradeID;//交易流水号
+    TradeType type;//交易类型
+    string name;//交易人姓名
+    string cardID;//交易卡号
+    string othername;//被转账人姓名
+    string otherID;//被转账人卡号
+    double money;//交易金额
+    short int year,month,day,hour,minute,second;//交易时间
+    string info="无";//交易备注
+};
 Status Account_Balance(Account&);
 Status Account_Opening(void);
 Status Withdrawal(Account&);
