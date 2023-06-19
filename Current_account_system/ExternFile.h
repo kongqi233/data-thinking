@@ -19,12 +19,12 @@
 using namespace std;
 typedef int Status;
 enum Sex{
-    MALE,FEMALE
+    NONE,MALE,FEMALE
 };
 struct Account{
     string SID;//系统内部标识,定长11位
     string name;//名字，限长30
-    Sex sex;//性别
+    Sex sex=Sex::NONE;//性别
     string telephone;//手机号，定长11
     short int cardID[4];//卡号，定长16
     string IDnumber;//身份证号，定长18
