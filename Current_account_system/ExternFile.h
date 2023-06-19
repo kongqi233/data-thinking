@@ -50,6 +50,9 @@ struct TradeInfo{
 Status Account_Balance(Account&);
 Status Account_Opening(void);
 Status Withdrawal(Account&);
+Status CreateCardID(Account&,short int);
+Status GetTime(short int[]);
+Status AccountWrite(Account&);
 
 class AccountData{
     myVector<Account> accounts;
