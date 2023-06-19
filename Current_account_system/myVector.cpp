@@ -1,3 +1,6 @@
+#ifndef myvector
+#define myvector
+#include <iostream>
 template<typename T>
 class myVector
 {
@@ -26,7 +29,7 @@ public:
     bool empty() const {
         return sizen==0;
     }
-    operator [](int i){
+    T& operator[](int i){
         return data[i];
     }
     void erase(int pos){
@@ -61,3 +64,5 @@ public:
         delete[] t;
     }
 };
+
+#endif

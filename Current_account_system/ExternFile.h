@@ -5,12 +5,12 @@
 #define EXTERNFILE_H
 
 #include<bits/stdc++.h>
-#include<myVector.cpp>
+#include "myVector.cpp"
 #define OK 1
 #define ERROR 0
 #define OVERFLOW -1
-#define TRADELOG_PATH "../CAsystem/tradeLog.csv"
-#define ACCOUNT_PATH "../CAsystem/Account.csv"
+#define TRADELOG_PATH "./CAsystem/tradeLog.csv"
+#define ACCOUNT_PATH "./CAsystem/Account.csv"
 #define NAME_MAX_SIZE 30
 #define SID_SIZE 11
 #define TELEPHONE_SIZE 11
