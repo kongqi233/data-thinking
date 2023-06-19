@@ -21,5 +21,4 @@ int main(){
     }
     out.close();
     cout<<"yes";
-    return 0;
 }

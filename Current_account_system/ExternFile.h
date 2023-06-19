@@ -4,7 +4,7 @@
 #ifndef EXTERNFILE_H
 #define EXTERNFILE_H
 
-#include<bits/stdc++.h>
+#include<iostream>
 #include "myVector.cpp"
 #define OK 1
 #define ERROR 0
@@ -35,5 +35,12 @@ struct Account{
 };
 Status Account_Balance(Account&);
 Status Account_Opening(void);
+
+class AccountData{
+    myVector<Account> accounts;
+    public:
+    AccountData(string path=ACCOUNT_PATH);
+    ~AccountData();
+};
 
 #endif
