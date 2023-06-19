@@ -4,12 +4,13 @@
 #ifndef EXTERNFILE_H
 #define EXTERNFILE_H
 
-#include<bits/stdc++.h>
+#include<iostream>
+#include "myVector.cpp"
 #define OK 1
 #define ERROR 0
 #define OVERFLOW -1
-#define TRADELOG_PATH "../CAsystem/tradeLog.csv"
-#define ACCOUNT_PATH "../CAsystem/Account.csv"
+#define TRADELOG_PATH "./CAsystem/tradeLog.csv"
+#define ACCOUNT_PATH "./CAsystem/Account.csv"
 #define NAME_MAX_SIZE 30
 #define SID_SIZE 11
 #define TELEPHONE_SIZE 11
@@ -34,5 +35,12 @@ struct Account{
 };
 Status Account_Balance(Account&);
 Status Account_Opening(void);
+
+class AccountData{
+    myVector<Account> accounts;
+    public:
+    AccountData(string path=ACCOUNT_PATH);
+    ~AccountData();
+};
 
 #endif
