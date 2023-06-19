@@ -35,6 +35,7 @@ struct Account{
 };
 Status Account_Balance(Account&);
 Status Account_Opening(void);
+Status Withdrawal(Account&);
 
 class AccountData{
     myVector<Account> accounts;
