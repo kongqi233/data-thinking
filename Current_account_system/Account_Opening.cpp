@@ -13,6 +13,36 @@ Status CreateBack(string& judge){
         judge=temp;
     return OK;
 }
+
+Status CreateCheck(Account& account){
+    system("cls");
+    string temp;
+    do{
+        system("cls");
+        cout<<"请重复您的密码:"<<endl;
+        cin>>temp;
+        if(temp.size()==1&&temp[0]=='b'||temp[0]=='B')
+            return ERROR;
+    }while(temp!=account.password);
+    do{
+        system("cls");
+        cout<<"请确认您的信息:"<<endl;
+        cout<<"----------------------------------"<<endl;
+        cout<<setw(16)<<"姓名:"<<account.name<<endl;
+        cout<<setw(16)<<"性别:"<<(account.sex==Sex::MALE?"男":"女")<<endl;
+        cout<<setw(16)<<"手机号码:"<<account.telephone<<endl;
+        cout<<setw(16)<<"身份证号:"<<account.IDnumber<<endl;
+        cout<<"----------------------------------"<<endl;
+        cout<<setw(16)<<"Y/y 确认 "<<"N/n 返回"<<endl;
+        cout<<"----------------------------------"<<endl;
+        cin>>temp;
+        if(temp=="Y"||temp=="y")
+            break;
+        if(temp=="N"||temp=="n")
+            return ERROR;
+    }while(temp!="Y"&&temp!="y"&&temp!="N"&&temp!="n");
+    return OK;
+}
 Status Account_Creating(Account& account){
     string temp;
     cout<<"请输入您的名字:"<<endl;
@@ -67,6 +97,10 @@ Status Account_Creating(Account& account){
             account.IDnumber="";
             return ERROR;
         }
+    }
+    if(!CreateCheck(account)){
+        account.password="";
+        return ERROR;
     }
     return OK;
 }
