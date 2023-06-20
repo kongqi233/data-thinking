@@ -126,7 +126,7 @@ Status Account_Opening(){
         cout<<setw(16)<<"性别:"<<(account.sex==Sex::MALE?"男":"女")<<endl;
         cout<<setw(16)<<"手机号码:"<<account.telephone<<endl;
         cout<<setw(16)<<"身份证号:"<<account.IDnumber<<endl;
-        cout<<setw(16)<<"账户卡号:"<<account.cardID[0]<<" "<<account.cardID[1]<<" "<<account.cardID[2]<<" "<<account.cardID[3]<<endl;
+        cout<<setw(16)<<"账户卡号:"<<account.cardID.substr(0,4)<<" "<<account.cardID.substr(4,4)<<" "<<account.cardID.substr(8,4)<<" "<<account.cardID.substr(12,4)<<endl;
         cout<<setw(16)<<"开户时间:"<<account.year<<"-"<<setw(2)<<setfill('0')<<account.month<<"-"<<setw(2)<<setfill('0')<<account.day<<" "
             <<setw(2)<<setfill('0')<<account.hour<<":"<<setw(2)<<setfill('0')<<account.minute<<":"<<setw(2)<<setfill('0')<<account.second<<endl;
         cout<<"----------------------------------"<<endl;

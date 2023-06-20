@@ -26,9 +26,7 @@ AccountData::AccountData(string path){
             getline(sin,word,',');
             accounts[i].telephone=word;
             getline(sin,word,',');
-            for(int j=0;j<4;j++){
-                accounts[i].cardID[j]=stoi(word.substr(j*4,4));
-            }
+                accounts[i].cardID=word;
             getline(sin,word,',');
             accounts[i].IDnumber=word;
             getline(sin,word,',');
@@ -48,9 +46,7 @@ AccountData::~AccountData(){
     out<<accounts.size()<<endl;
     for(int i=0;i<accounts.size();i++){
         out<<accounts[i].SID<<","<<accounts[i].name<<","<<accounts[i].sex<<","<<accounts[i].telephone<<",";
-        out<<to_string(accounts[i].cardID[0])+to_string(accounts[i].cardID[1])+to_string(accounts[i].cardID[2])+to_string(accounts[i].cardID[3])<<",";
-        out<<accounts[i].IDnumber<<","<<accounts[i].password<<","<<accounts[i].balance<<endl;
-        
+        out<<accounts[i].cardID<<","<<accounts[i].IDnumber<<","<<accounts[i].password<<","<<accounts[i].balance<<endl;
     }
     out.close();
 }

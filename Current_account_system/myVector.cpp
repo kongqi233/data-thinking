@@ -36,6 +36,11 @@ public:
         for(int i=pos+1;i<sizen;i++) data[i-1]=data[i];
         sizen--;
     }
+    void swap(int i,int j){
+        if(i<sizen&&j<sizen){
+            T t=data[i];data[i]=data[j];data[j]=t;
+        }
+    }
     void addlist(const T& t){
         push_back(t);
     }

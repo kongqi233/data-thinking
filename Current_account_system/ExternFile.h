@@ -4,6 +4,8 @@
 #ifndef EXTERNFILE_H
 #define EXTERNFILE_H
 
+#include <algorithm>
+#include <functional>
 #include<iostream>
 #include "myVector.cpp"
 #define OK 1
@@ -26,7 +28,7 @@ struct Account{
     string name;//名字，限长30
     Sex sex=Sex::NONE;//性别
     string telephone;//手机号，定长11
-    short int cardID[4];//卡号，定长16
+    string cardID;//卡号，定长16
     string IDnumber;//身份证号，定长18
     string password;//密码，定长6
     double balance;//余额
@@ -53,10 +55,11 @@ Status Withdrawal(Account&);
 Status CreateCardID(Account&,short int);
 Status GetTime(short int[]);
 Status AccountWrite(Account&);
-
 class AccountData{
     myVector<Account> accounts;
     public:
+    static void sort(myVector<Account>& accounts,int l,int r,std::function<bool(Account,Account)> const &f);
+    static Account& find();
     AccountData(string path=ACCOUNT_PATH);
     ~AccountData();
 };
