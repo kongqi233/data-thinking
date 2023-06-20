@@ -102,7 +102,7 @@ Status Account_Creating(Account& account){//获取开户信息
     }
     return OK;
 }
-Status Account_Opening(){
+Status Account_Opening(AccountData& data){
     clock_t s,e;
     Account account;
     s=clock();
@@ -116,7 +116,7 @@ Status Account_Opening(){
     account.year=time[0];account.month=time[1];account.day=time[2];
     account.hour=time[3];account.minute=time[4];account.second=time[5];
     account.balance=0;
-    //AccountWrite(account);
+    AccountWrite(data,account);
     char c;
     do{
         system("cls");

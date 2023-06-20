@@ -11,6 +11,7 @@ AccountData::AccountData(string path){
         string s;
         getline(in,s);
         long long l=stoi(s);
+        accountsNumber=l;
         accounts.reserve(l);
         phone.reserve(l);
         cardID.reserve(l);
@@ -45,7 +46,7 @@ AccountData::AccountData(string path){
             phone.push_back(stoipair(account.telephone,i));
             cardID.push_back(stoipair(account.cardID,i));;
             IDnumber.push_back(stoipair(account.IDnumber,i));;
-        }   
+        }
     }
     in.close();
     AccountData::sort<stoipair>(phone, 0, phone.size()-1, [](stoipair a,stoipair b){
@@ -102,4 +103,14 @@ Account& AccountData::find(const string &s,int n){
     }
     if(t==-1) cout<<"输入错误"<<endl;
     else return accounts[t];
+}
+
+void AccountData::addAccount(const Account& acc){
+    accounts.addlist(acc);
+    accountsNumber++;
+    return;
+}
+
+long long AccountData::getAccNumber(){
+    return accountsNumber;
 }

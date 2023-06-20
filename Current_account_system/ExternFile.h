@@ -6,7 +6,7 @@
 
 #include <algorithm>
 #include <functional>
-#include <iostream>
+#include<iostream>
 #include <string>
 #include "myVector.cpp"
 #define OK 1
@@ -52,25 +52,30 @@ struct TradeInfo{
     short int year,month,day,hour,minute,second;//交易时间
     string info="无";//交易备注
 };
-struct stoimap{
+struct stoipair{
     string key;
     int value;
+    stoipair(string key="",int value=0):key(key),value(value){};
 };
-Status Account_Balance(Account&);
-Status Account_Opening(void);
-Status Withdrawal(Account&);
-Status CreateCardID(Account&,short int);
-Status GetTime(short int[]);
-Status AccountWrite(Account&);
 class AccountData{
     myVector<Account> accounts;
-    stoimap phone,cardID,IDnumber;
+    long long accountsNumber;
     public:
-    template<typename T,typename U>
-    static void sort(T& accounts,int l,int r,std::function<bool(U,U)> const &f);
-    static Account& find();
+    myVector<stoipair> phone,cardID,IDnumber;
+    template<typename U,typename T>
+    static void sort(T& q,int l,int r,std::function<bool(U,U)> const &f);
+    Account& find(const string& s,int n);
+    void addAccount(const Account&);
+    long long getAccNumber();
     AccountData(string path=ACCOUNT_PATH);
     ~AccountData();
 };
+Status Account_Balance(Account&);
+Status Account_Opening(AccountData&);
+Status Withdrawal(Account&);
+Status CreateCardID(Account&,short int);
+Status GetTime(short int[]);
+Status AccountWrite(AccountData&,Account&);
+
 
 #endif
