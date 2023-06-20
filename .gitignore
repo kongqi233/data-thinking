@@ -1,3 +1,9 @@
 *.vscode
 *.exe
 *.bat
+bin/
+obj/
+*.cbp
+*.cscope_file_list
+*.depend
+*.layout

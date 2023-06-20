@@ -111,10 +111,10 @@ Account& AccountData::find(const string &s,int n){
 
 void AccountData::addAccount(const Account& acc){
     accounts.addlist(acc);
-    accountsNumber++;
     phone.push_back(stoipair(acc.telephone,accountsNumber));
     cardID.push_back(stoipair(acc.cardID,accountsNumber));
     IDnumber.push_back(stoipair(acc.IDnumber,accountsNumber));
+    accountsNumber++;
     return;
 }
 
