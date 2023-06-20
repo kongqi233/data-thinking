@@ -116,7 +116,7 @@ Status Account_Opening(){
     account.year=time[0];account.month=time[1];account.day=time[2];
     account.hour=time[3];account.minute=time[4];account.second=time[5];
     account.balance=0;
-    AccountWrite(account);
+    //AccountWrite(account);
     char c;
     do{
         system("cls");
