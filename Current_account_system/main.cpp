@@ -2,6 +2,8 @@
 #include "ExternFile.h"
 using namespace std;
 int main(){
-    //Account_Opening();
+    AccountData data;
+    //Account t=data.test();
+    //cout<<t.IDnumber<<endl;
     return 0;
 }

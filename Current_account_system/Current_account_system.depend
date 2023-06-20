@@ -55,7 +55,7 @@
 	<bits/stdc++.h>
 	"ExternFile.h"
 
-1687256310 e:\git\gitproject\data-thinking\current_account_system\externfile.h
+1687268016 e:\git\gitproject\data-thinking\current_account_system\externfile.h
 	<algorithm>
 	<functional>
 	<iostream>
@@ -74,7 +74,7 @@
 	<iostream>
 	"ExternFile.h"
 
-1687256323 source:e:\git\gitproject\data-thinking\current_account_system\main.cpp
+1687263243 source:e:\git\gitproject\data-thinking\current_account_system\main.cpp
 	<bits/stdc++.h>
 	"ExternFile.h"
 
@@ -90,7 +90,7 @@
 	<iostream>
 	"ExternFile.h"
 
-1687250682 source:e:\git\gitproject\data-thinking\current_account_system\account_opening.cpp
+1687258844 source:e:\git\gitproject\data-thinking\current_account_system\account_opening.cpp
 	<iostream>
 	<iomanip>
 	"ExternFile.h"
@@ -98,7 +98,7 @@
 1687250485 e:\git\gitproject\data-thinking\current_account_system\myvector.cpp
 	<iostream>
 
-1687250485 source:e:\git\gitproject\data-thinking\current_account_system\accountdata.cpp
+1687267721 source:e:\git\gitproject\data-thinking\current_account_system\accountdata.cpp
 	<iostream>
 	<fstream>
 	<sstream>
@@ -123,7 +123,18 @@
 	<time.h>
 	"ExternFile.h"
 
-1687189788 source:e:\git\gitproject\data-thinking\current_account_system\accountwrite.cpp
+1687260205 source:e:\git\gitproject\data-thinking\current_account_system\accountwrite.cpp
+	<iostream>
+	<fstream>
+	<sstream>
+	"ExternFile.h"
+
+1687267721 source:e:\git\gitproject\data-thinking\current_account_system\end.cpp
+	<iostream>
+	<fstream>
+	"ExternFile.h"
+
+1687268714 source:e:\git\gitproject\data-thinking\current_account_system\tradedata.cpp
 	<iostream>
 	<fstream>
 	<sstream>
