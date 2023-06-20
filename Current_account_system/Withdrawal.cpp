@@ -45,6 +45,7 @@ Status Withdrawal(Account& account){
                 }
             }while(pass!=account.password||(n>50000&&ID!=account.IDnumber));
             system("cls");
+            cout<<"验证成功"<<endl;
             account.balance-=n;
             cout<<"取款成功!\n当前账号余额为:"<<account.balance<<endl;
             flag=false;
@@ -53,4 +54,5 @@ Status Withdrawal(Account& account){
     }
     return OK;
 }
+
 
