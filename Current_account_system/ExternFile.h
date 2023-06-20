@@ -6,7 +6,7 @@
 
 #include <algorithm>
 #include <functional>
-#include<iostream>
+#include <iostream>
 #include <string>
 #include "myVector.cpp"
 #define OK 1
@@ -19,10 +19,11 @@
 #define TELEPHONE_SIZE 11
 #define IDNUMBER_SIZE 18
 #define PASSWORD_SIZE 6
+#define TRADEID_SIZE 12
 using namespace std;
 typedef int Status;
 enum Sex{
-    NONE,MALE,FEMALE
+    NONE=0,MALE=1,FEMALE=2
 };
 struct Account{
     string SID;//系统内部标识,定长11位
@@ -39,10 +40,10 @@ struct Account{
     myVector<string> tradeID;
 };
 enum TradeType{
-    IN,OUT,INTER
+    IN=1,OUT=2,INTER=3
 };
 struct TradeInfo{
-    string tradeID;//交易流水号
+    string tradeID;//交易流水号,定长12
     TradeType type;//交易类型
     string name;//交易人姓名
     string cardID;//交易卡号
@@ -67,8 +68,18 @@ class AccountData{
     Account& find(const string& s,int n);
     void addAccount(const Account&);
     long long getAccNumber();
+    //Account& test();
     AccountData(string path=ACCOUNT_PATH);
     ~AccountData();
+};
+class TradeData{
+    myVector<TradeInfo> trade;
+    long long tradeNumber;
+public:
+    void addTrade(const TradeInfo&);
+    Status find(const string&,TradeInfo&);
+    TradeData(string path=TRADELOG_PATH);
+    ~TradeData();
 };
 Status Account_Balance(Account&);
 Status Account_Opening(AccountData&);

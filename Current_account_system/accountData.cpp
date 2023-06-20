@@ -44,9 +44,13 @@ AccountData::AccountData(string path){
             accounts.push_back(account);
 
             phone.push_back(stoipair(account.telephone,i));
-            cardID.push_back(stoipair(account.cardID,i));;
-            IDnumber.push_back(stoipair(account.IDnumber,i));;
+            cardID.push_back(stoipair(account.cardID,i));
+            IDnumber.push_back(stoipair(account.IDnumber,i));
         }
+    }
+    else{
+        cout<<"Error:Fail to open system file!"<<endl;
+        exit(1);
     }
     in.close();
     AccountData::sort<stoipair>(phone, 0, phone.size()-1, [](stoipair a,stoipair b){
@@ -108,9 +112,16 @@ Account& AccountData::find(const string &s,int n){
 void AccountData::addAccount(const Account& acc){
     accounts.addlist(acc);
     accountsNumber++;
+    phone.push_back(stoipair(acc.telephone,accountsNumber));
+    cardID.push_back(stoipair(acc.cardID,accountsNumber));
+    IDnumber.push_back(stoipair(acc.IDnumber,accountsNumber));
     return;
 }
 
 long long AccountData::getAccNumber(){
     return accountsNumber;
 }
+
+//Account& AccountData::test(){
+//    return accounts[accounts.size()-1];
+//}
