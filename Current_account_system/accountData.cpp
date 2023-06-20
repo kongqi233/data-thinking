@@ -10,7 +10,7 @@ AccountData::AccountData(string path){
     if(in.is_open()){
         string s;
         getline(in,s);
-        cout<<stoi(s)<<endl;
+        accounts.reserve(stoi(s));
         for(long long i=0;i<stoi(s);i++){
             getline(in,s);
             string word;

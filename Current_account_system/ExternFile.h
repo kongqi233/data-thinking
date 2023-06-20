@@ -7,6 +7,7 @@
 #include <algorithm>
 #include <functional>
 #include<iostream>
+#include <string>
 #include "myVector.cpp"
 #define OK 1
 #define ERROR 0
@@ -34,6 +35,8 @@ struct Account{
     double balance;//余额
     short int year,month,day,hour,minute,second;//开户时间
     short int xyear,xmonth,xday,xhour,xminute,xsecond;//销户时间
+    bool tag;
+    myVector<string> tradeID;
 };
 enum TradeType{
     IN,OUT,INTER
@@ -49,6 +52,10 @@ struct TradeInfo{
     short int year,month,day,hour,minute,second;//交易时间
     string info="无";//交易备注
 };
+struct stoimap{
+    string key;
+    int value;
+};
 Status Account_Balance(Account&);
 Status Account_Opening(void);
 Status Withdrawal(Account&);
@@ -57,8 +64,10 @@ Status GetTime(short int[]);
 Status AccountWrite(Account&);
 class AccountData{
     myVector<Account> accounts;
+    stoimap phone,cardID,IDnumber;
     public:
-    static void sort(myVector<Account>& accounts,int l,int r,std::function<bool(Account,Account)> const &f);
+    template<typename T,typename U>
+    static void sort(T& accounts,int l,int r,std::function<bool(U,U)> const &f);
     static Account& find();
     AccountData(string path=ACCOUNT_PATH);
     ~AccountData();
