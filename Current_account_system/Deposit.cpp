@@ -11,6 +11,7 @@ Status Deposit(Account& account){
     double n=0;
     cout<<"请输入存款数：";
     cin>>n;
+    string ID;
     bool flag=true;
     while(flag) {
         if (n < 0.01) {
@@ -36,17 +37,19 @@ Status Deposit(Account& account){
 
             cin >> pass;
             while (pass != account.password) {
+                system("cls");
                 cout << "密码错误,请重新输入！" << endl;
                 _sleep(1000);
                 cin >> pass;
             }
             cout << "请输入身份证号码确认：" << endl;
-            string ID;
+           
             cin >> ID;
             while (ID != account.IDnumber) {
                 system("cls");
                 cout << "身份证号错误，请重新输入!" << endl;
                 _sleep(1000);
+                cin>>ID;
             }
             system("cls");
             cout << "验证成功！" << endl;
@@ -56,6 +59,5 @@ Status Deposit(Account& account){
             _sleep(1000);
         }
     }
-
     return OK;
 }
