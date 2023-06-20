@@ -51,3 +51,81 @@
 	<bits/stdc++.h>
 	"ExternFile.h"
 
+1687096995 source:e:\git\gitproject\data-thinking\current_account_system\account_balance.cpp
+	<bits/stdc++.h>
+	"ExternFile.h"
+
+1687256310 e:\git\gitproject\data-thinking\current_account_system\externfile.h
+	<algorithm>
+	<functional>
+	<iostream>
+	<string>
+	"myVector.cpp"
+
+1687096995 source:e:\git\gitproject\data-thinking\current_account_system\account_closure.cpp
+	<bits/stdc++.h>
+	"ExternFile.h"
+
+1687096995 source:e:\git\gitproject\data-thinking\current_account_system\account_information.cpp
+	<bits/stdc++.h>
+	"ExternFile.h"
+
+1687160947 source:e:\git\gitproject\data-thinking\current_account_system\deposit.cpp
+	<iostream>
+	"ExternFile.h"
+
+1687256323 source:e:\git\gitproject\data-thinking\current_account_system\main.cpp
+	<bits/stdc++.h>
+	"ExternFile.h"
+
+1687096995 source:e:\git\gitproject\data-thinking\current_account_system\test.cpp
+	<bits/stdc++.h>
+	"ExternFile.h"
+
+1687096995 source:e:\git\gitproject\data-thinking\current_account_system\transactions.cpp
+	<bits/stdc++.h>
+	"ExternFile.h"
+
+1687256084 source:e:\git\gitproject\data-thinking\current_account_system\withdrawal.cpp
+	<iostream>
+	"ExternFile.h"
+
+1687250682 source:e:\git\gitproject\data-thinking\current_account_system\account_opening.cpp
+	<iostream>
+	<iomanip>
+	"ExternFile.h"
+
+1687250485 e:\git\gitproject\data-thinking\current_account_system\myvector.cpp
+	<iostream>
+
+1687250485 source:e:\git\gitproject\data-thinking\current_account_system\accountdata.cpp
+	<iostream>
+	<fstream>
+	<sstream>
+	<string>
+	"ExternFile.h"
+
+1687250485 source:e:\git\gitproject\data-thinking\current_account_system\myvector.cpp
+	<iostream>
+
+1687160947 source:e:\git\gitproject\data-thinking\current_account_system\testdata.cpp
+	<bits/stdc++.h>
+	"ExternFile.h"
+
+1687253220 source:e:\git\gitproject\data-thinking\current_account_system\createcardid.cpp
+	<iostream>
+	<string>
+	<time.h>
+	"ExternFile.h"
+
+1687182652 source:e:\git\gitproject\data-thinking\current_account_system\gettime.cpp
+	<iostream>
+	<time.h>
+	"ExternFile.h"
+
+1687189788 source:e:\git\gitproject\data-thinking\current_account_system\accountwrite.cpp
+	<iostream>
+	<fstream>
+	<sstream>
+	"ExternFile.h"
+

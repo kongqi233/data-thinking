@@ -4,7 +4,6 @@
 #include<iostream>
 #include "ExternFile.h"
 using namespace std;
-//
 Status Withdrawal(Account& account){
     system("cls");
     cout<<"当前账号余额为:"<<account.balance<<endl;

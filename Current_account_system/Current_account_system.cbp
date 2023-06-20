@@ -32,17 +32,22 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="AccountWrite.cpp" />
 		<Unit filename="Account_Balance.cpp" />
 		<Unit filename="Account_Closure.cpp">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="Account_Information.cpp" />
 		<Unit filename="Account_Opening.cpp" />
+		<Unit filename="CreateCardID.cpp" />
 		<Unit filename="Deposit.cpp" />
 		<Unit filename="ExternFile.h" />
+		<Unit filename="GetTime.cpp" />
 		<Unit filename="Transactions.cpp" />
 		<Unit filename="Withdrawal.cpp" />
+		<Unit filename="accountData.cpp" />
 		<Unit filename="main.cpp" />
+		<Unit filename="myVector.cpp" />
 		<Unit filename="test.cpp">
 			<Option compilerVar="CC" />
 		</Unit>
