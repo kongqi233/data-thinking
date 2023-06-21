@@ -17,7 +17,10 @@ int main(){
         for(int i=6;i<s.length();i++) s[i]+=rand()%10;
         out<<s<<",";
         s="000000";for(auto &i:s) i+=rand()%10;
-        out<<s<<","<<rand()%100000<<endl;
+        out<<s<<","<<rand()%100000<<",";
+        out<<"20230101010101"<<","<<"00000000000000"<<","<<'0'<<",";
+        out<<"1.2.3.4"<<endl;
+
     }
     out.close();
     cout<<"yes";
