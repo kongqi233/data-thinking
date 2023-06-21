@@ -46,7 +46,7 @@ TradeData::TradeData(string path){
             getline(sin,word,',');
             info.tradeID=word;
             getline(sin,word,',');
-            info.type=(word=="1"?TradeType::IN:(word=="2"?TradeType::OUT:TradeType::INTER));
+            info.type=(word=="1"?TradeType::IN:(word=="2"?TradeType::OUT:(word=="3"?TradeType::TO:TradeType::FROM)));
             getline(sin,word,',');
             info.name=word;
             getline(sin,word,',');
@@ -81,6 +81,9 @@ TradeData::~TradeData(){
         <<trade[i].hour<<setw(2)<<setfill('0')<<trade[i].minute<<setw(2)<<setfill('0')<<trade[i].second<<","<<trade[i].info<<endl;
     }
     out.close();
+}
+long long TradeData::getTrNumber(){
+    return tradeNumber;
 }
 //TradeInfo& TradeData::test(){
 //    return trade[tradeNumber-1];

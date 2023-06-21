@@ -40,7 +40,7 @@ struct Account{
     myVector<string> tradeID;
 };
 enum TradeType{
-    IN=1,OUT=2,INTER=3
+    IN=1,OUT=2,TO=3,FROM=4
 };
 struct TradeInfo{
     string tradeID;//交易流水号,定长12
@@ -78,16 +78,18 @@ class TradeData{
 public:
     void addTrade(const TradeInfo&);
     TradeInfo& find(const string&);
+    long long getTrNumber();
     //TradeInfo& test();
     TradeData(string path=TRADELOG_PATH);
     ~TradeData();
 };
 Status Account_Balance(Account&);
 Status Account_Opening(AccountData&);
-Status Withdrawal(Account&);
+Status Withdrawal(Account&,TradeData&);
 Status CreateCardID(Account&,short int);
 Status GetTime(short int[]);
 Status AccountWrite(AccountData&,Account&);
-
+Status Deposit(Account&,TradeData&);
+Status CreateTradeInfo(TradeData&,Account&,Account&,TradeType,double,string ="无");
 
 #endif
