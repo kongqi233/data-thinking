@@ -2,6 +2,7 @@
 #include <fstream>
 #include <sstream>
 #include <string>
+#include<iomanip>
 #include "ExternFile.h"
 
 AccountData::AccountData(string path){
@@ -97,7 +98,7 @@ AccountData::~AccountData(){
         <<accounts[i].hour<<setw(2)<<setfill('0')<<accounts[i].minute<<setw(2)<<setfill('0')<<accounts[i].second<<",";
         out<<setw(4)<<setfill('0')<<accounts[i].xyear<<setw(2)<<setfill('0')<<accounts[i].xmonth<<setw(2)<<setfill('0')<<accounts[i].xday<<setw(2)<<setfill('0')
         <<accounts[i].xhour<<setw(2)<<setfill('0')<<accounts[i].xminute<<setw(2)<<setfill('0')<<accounts[i].xsecond<<","<<accounts[i].tag<<",";
-        for(int j=0;i<accounts[i].tradeID.size();j++){
+        for(int j=0;j<accounts[i].tradeID.size();j++){
             out<<accounts[i].tradeID[j]<<'.';
         }
         out<<endl;
@@ -152,6 +153,6 @@ long long AccountData::getAccNumber(){
     return accountsNumber;
 }
 
-//Account& AccountData::test(){
-//    return accounts[accounts.size()-1];
-//}
+Account& AccountData::test(){
+    return accounts[accounts.size()-1];
+}
