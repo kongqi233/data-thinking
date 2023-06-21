@@ -91,5 +91,6 @@ Status GetTime(short int[]);
 Status AccountWrite(AccountData&,Account&);
 Status Deposit(Account&,TradeData&);
 Status CreateTradeInfo(TradeData&,Account&,Account&,TradeType,double,string ="无");
+Status Transactions(Account& acc,TradeData& tr);
 
 #endif
