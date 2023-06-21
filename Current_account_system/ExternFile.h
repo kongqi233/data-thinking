@@ -77,7 +77,8 @@ class TradeData{
     long long tradeNumber;
 public:
     void addTrade(const TradeInfo&);
-    Status find(const string&,TradeInfo&);
+    TradeInfo& find(const string&);
+    //TradeInfo& test();
     TradeData(string path=TRADELOG_PATH);
     ~TradeData();
 };
