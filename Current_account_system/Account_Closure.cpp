@@ -14,9 +14,25 @@ void Account_Closure(Account &a){
         cin>>c;
     }
     if(c=='N'){
-
+    cout<<"取消销户，即将退出"<<endl;
+        _sleep(1000);
+    //跳转界面
     }
     else if(c=='Y'){
+        if(a.balance>0){
+            cout<<"账户还有余额，无法销户"<<endl;
+            cout<<"请选择是否取出(Y/N)："<<endl;
+            cin>>c;
+            if(c=='Y'){
+                cout<<"已取出,请继续操作"<<endl;
+                _sleep(1000);
+            }
+            else{
+                cout<<"无法销户，即将退出"<<endl;
+                _sleep(1000);
+                //返回到界面
+            }
+        }
         cout<<"请输入密码验证："<<endl;
         cin>>s;
         while(s!=a.password){
