@@ -9,7 +9,7 @@ void Account_info(AccountData data){
     int shownub=10;
     int page=0,pages=data.getAccNumber()/shownub+1;
     if(data.getAccNumber()==0){
-        cout<<"无信息...请添加学生信息"<<endl;
+        cout<<"无信息...请添加账户信息"<<endl;
     }
     else{
         char n1,n2;
