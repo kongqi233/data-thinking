@@ -39,10 +39,32 @@ AccountData::AccountData(string path){
             account.password=word;
             getline(sin,word,',');
             account.balance=stod(word);
-            account.year=account.month=account.day=account.hour=account.minute=account.second=0;
-            account.xyear=account.xmonth=account.xday=account.xhour=account.xminute=account.xsecond=0;
-            accounts.push_back(account);
+            getline(sin,word,',');
+            account.year=stod(word.substr(0,4));
+            account.month=stod(word.substr(4,2));
+            account.day=stod(word.substr(6,2));
+            account.hour=stod(word.substr(8,2));
+            account.minute=stod(word.substr(10,2));
+            account.second=stod(word.substr(12,2));
+            getline(sin,word,',');
+            account.xyear=stod(word.substr(0,4));
+            account.xmonth=stod(word.substr(4,2));
+            account.xday=stod(word.substr(6,2));
+            account.xhour=stod(word.substr(8,2));
+            account.xminute=stod(word.substr(10,2));
+            account.xsecond=stod(word.substr(12,2));
+            getline(sin,word,',');
+            account.tag=stoi(word);
+            getline(sin,word,',');
+            istringstream t;
+            string tt;
+            t.clear();
+            t.str(word);
+            while (getline(t,tt,'.')) {
+                account.tradeID.push_back(tt);
+            }
 
+            accounts.push_back(account);
             phone.push_back(stoipair(account.telephone,i));
             cardID.push_back(stoipair(account.cardID,i));
             IDnumber.push_back(stoipair(account.IDnumber,i));
@@ -70,7 +92,15 @@ AccountData::~AccountData(){
     out<<accounts.size()<<endl;
     for(int i=0;i<accounts.size();i++){
         out<<accounts[i].SID<<","<<accounts[i].name<<","<<accounts[i].sex<<","<<accounts[i].telephone<<",";
-        out<<accounts[i].cardID<<","<<accounts[i].IDnumber<<","<<accounts[i].password<<","<<accounts[i].balance<<endl;
+        out<<accounts[i].cardID<<","<<accounts[i].IDnumber<<","<<accounts[i].password<<","<<accounts[i].balance<<",";
+        out<<setw(4)<<setfill('0')<<accounts[i].year<<setw(2)<<setfill('0')<<accounts[i].month<<setw(2)<<setfill('0')<<accounts[i].day<<setw(2)<<setfill('0')
+        <<accounts[i].hour<<setw(2)<<setfill('0')<<accounts[i].minute<<setw(2)<<setfill('0')<<accounts[i].second<<",";
+        out<<setw(4)<<setfill('0')<<accounts[i].xyear<<setw(2)<<setfill('0')<<accounts[i].xmonth<<setw(2)<<setfill('0')<<accounts[i].xday<<setw(2)<<setfill('0')
+        <<accounts[i].xhour<<setw(2)<<setfill('0')<<accounts[i].xminute<<setw(2)<<setfill('0')<<accounts[i].xsecond<<","<<accounts[i].tag<<",";
+        for(int j=0;i<accounts[i].tradeID.size();j++){
+            out<<accounts[i].tradeID[j]<<'.';
+        }
+        out<<endl;
     }
     out.close();
 }
