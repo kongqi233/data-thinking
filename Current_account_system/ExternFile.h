@@ -38,6 +38,10 @@ struct Account{
     short int xyear,xmonth,xday,xhour,xminute,xsecond;//销户时间
     bool tag;
     myVector<string> tradeID;
+    friend ostream& operator<<(ostream& os,const Account& acc){
+        os<<acc.SID<<"\t"<<acc.name<<"\t"<<acc.sex<<"\t"<<acc.telephone<<"\t"<<acc.cardID<<"\t"<<acc.IDnumber<<"\t"<<acc.password<<"\t";
+        return os;
+    }
 };
 enum TradeType{
     IN=1,OUT=2,TO=3,FROM=4
@@ -68,6 +72,7 @@ class AccountData{
     Account& find(const string& s,int n);
     void addAccount(const Account&);
     long long getAccNumber();
+    myVector<Account>& getAccounts(){return accounts;}
     //Account& test();
     AccountData(string path=ACCOUNT_PATH);
     ~AccountData();

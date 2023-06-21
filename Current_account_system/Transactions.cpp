@@ -1,7 +1,8 @@
 /*
-*交易信息
+*账户交易信息
 */
-#include<bits/stdc++.h>
+#include<iostream>
+#include<iomanip>
 #include "ExternFile.h"
 using namespace std;
 Status Transactions(Account& acc,TradeData& tr){
