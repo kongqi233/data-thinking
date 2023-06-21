@@ -40,9 +40,11 @@
 		<Unit filename="Account_Information.cpp" />
 		<Unit filename="Account_Opening.cpp" />
 		<Unit filename="CreateCardID.cpp" />
+		<Unit filename="CreateTradeInfo.cpp" />
 		<Unit filename="Deposit.cpp" />
 		<Unit filename="ExternFile.h" />
 		<Unit filename="GetTime.cpp" />
+		<Unit filename="TradeData.cpp" />
 		<Unit filename="Transactions.cpp" />
 		<Unit filename="Withdrawal.cpp" />
 		<Unit filename="accountData.cpp" />

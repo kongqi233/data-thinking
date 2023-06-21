@@ -4,11 +4,7 @@
 #include<iostream>
 #include <conio.h>
 #include "ExternFile.h"
-#include "accountData.cpp"
-
 using namespace std;
-
-
 void Account_info(AccountData data){
     int shownub=10;
     int page=0,pages=data.getAccNumber()/shownub+1;
@@ -34,7 +30,3 @@ void Account_info(AccountData data){
     }
 }
 
-int main(){
-    AccountData data;
-    Account_info(data);
-}

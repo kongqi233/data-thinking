@@ -6,7 +6,6 @@
 #include "ExternFile.h"
 using namespace std;
 Status Transactions(Account& acc,TradeData& tr){
-    //system("cls");
     cout<<"您的交易信息如下:"<<endl;
     string temp;
     TradeInfo info;

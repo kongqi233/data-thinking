@@ -55,20 +55,22 @@
 	<bits/stdc++.h>
 	"ExternFile.h"
 
-1687349962 e:\git\gitproject\data-thinking\current_account_system\externfile.h
+1687350262 e:\git\gitproject\data-thinking\current_account_system\externfile.h
 	<algorithm>
 	<functional>
 	<iostream>
 	<string>
 	"myVector.cpp"
 
-1687096995 source:e:\git\gitproject\data-thinking\current_account_system\account_closure.cpp
+1687351177 source:e:\git\gitproject\data-thinking\current_account_system\account_closure.cpp
 	<bits/stdc++.h>
 	"ExternFile.h"
 
-1687349882 source:e:\git\gitproject\data-thinking\current_account_system\account_information.cpp
-	<bits/stdc++.h>
+1687351622 source:e:\git\gitproject\data-thinking\current_account_system\account_information.cpp
+	<iostream>
+	<conio.h>
 	"ExternFile.h"
+	"accountData.cpp"
 
 1687326131 source:e:\git\gitproject\data-thinking\current_account_system\deposit.cpp
 	<iostream>
@@ -82,8 +84,9 @@
 	<bits/stdc++.h>
 	"ExternFile.h"
 
-1687349962 source:e:\git\gitproject\data-thinking\current_account_system\transactions.cpp
-	<bits/stdc++.h>
+1687350262 source:e:\git\gitproject\data-thinking\current_account_system\transactions.cpp
+	<iostream>
+	<iomanip>
 	"ExternFile.h"
 
 1687325728 source:e:\git\gitproject\data-thinking\current_account_system\withdrawal.cpp
@@ -98,7 +101,7 @@
 1687250485 e:\git\gitproject\data-thinking\current_account_system\myvector.cpp
 	<iostream>
 
-1687350006 source:e:\git\gitproject\data-thinking\current_account_system\accountdata.cpp
+1687350508 source:e:\git\gitproject\data-thinking\current_account_system\accountdata.cpp
 	<iostream>
 	<fstream>
 	<sstream>
@@ -144,5 +147,13 @@
 
 1687325935 source:e:\git\gitproject\data-thinking\current_account_system\createtradeinfo.cpp
 	<iostream>
+	"ExternFile.h"
+
+1687350508 e:\git\gitproject\data-thinking\current_account_system\accountdata.cpp
+	<iostream>
+	<fstream>
+	<sstream>
+	<string>
+	<iomanip>
 	"ExternFile.h"
 
