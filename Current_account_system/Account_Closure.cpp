@@ -1,48 +1,60 @@
 /*
 *储户销户
 */
-#include<bits/stdc++.h>
+#include<iostream>
+#include<iomanip>
 #include "ExternFile.h"
 using namespace std;
-void Account_Closure(Account &a){
+Status Account_Closure(Account &a){
     char c;
-    string s;
-    cout<<"是否确认销户(Y/N):"<<endl;
-    cin>>c;
-    while(c!='N'&&c!='Y'){
-        cout<<"输入错误，请重新输入:"<<endl;
+    string pass="",ID="";
+    do{
+        system("cls");
+        cout<<setw(16)<<"是否确"<<"认销户"<<endl;
+        cout<<"---------------------------------"<<endl;
+        cout<<setw(16)<<"Y/y 确认 "<<" N/n 取消"<<endl;
         cin>>c;
-    }
-    if(c=='N'){
-    cout<<"取消销户，即将退出"<<endl;
+        if(c!='N'&&c!='n'&&c!='Y'&&c!='y'){
+            system("cls");
+            cout<<"输入错误!"<<endl;
+            _sleep(500);
+        }
+    }while(c!='N'&&c!='n'&&c!='Y'&&c!='y');
+    if(c=='N'||c=='n'){
+        system("cls");
+        cout<<"取消销户，即将返回..."<<endl;
         _sleep(1000);
-    //跳转界面
+        return ERROR;
     }
-    else if(c=='Y'){
+    else if(c=='Y'||c=='y'){
         if(a.balance>0){
-            cout<<"账户还有余额，无法销户"<<endl;
-            cout<<"请选择是否取出(Y/N)："<<endl;
-            cin>>c;
-            if(c=='Y'){
-                cout<<"已取出,请继续操作"<<endl;
-                _sleep(1000);
-            }
-            else{
-                cout<<"无法销户，即将退出"<<endl;
-                _sleep(1000);
-                //返回到界面
-            }
+            system("cls");
+            cout<<"请将余额取出再进行销户"<<endl;
+            _sleep(1000);
+            return ERROR;
         }
-        cout<<"请输入密码验证："<<endl;
-        cin>>s;
-        while(s!=a.password){
-            cout<<"密码错误，请重新输入："<<endl;
-            cin>>s;
+        else{
+            do{
+                system("cls");
+                cout<<"请输入密码验证:"<<endl;
+                if(pass!=a.password){
+                    cin>>pass;
+                    if(pass=="B"||pass=="b")
+                        return ERROR;
+                }else cout<<"******"<<endl;
+                cout<<"请输入身份证号验证:"<<endl;
+                cin>>ID;
+                if(ID=="b"||ID=="B")
+                    return ERROR;
+            }while(pass!=a.password||ID!=a.IDnumber);
         }
-        cout<<"密码正确，即将销户！"<<endl;
+        system("cls");
+        cout<<"验证成功，即将销户！"<<endl;
         _sleep(1000);
         a.tag=true;
+        system("cls");
         cout<<"销户成功！"<<endl;
+        _sleep(1000);
     }
-
+    return OK;
 }
