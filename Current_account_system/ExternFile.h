@@ -71,8 +71,8 @@ class AccountData{
     static void sort(T& q,int l,int r,std::function<bool(U,U)> const &f);
     Account& find(const string& s,int n);
     void addAccount(const Account&);
-    long long getAccNumber();
-    myVector<Account>& getAccounts(){return accounts;}
+    long long getAccNumber()const;
+    const myVector<Account>& getAccounts()const{return accounts;}
     //Account& test();
     AccountData(string path=ACCOUNT_PATH);
     ~AccountData();

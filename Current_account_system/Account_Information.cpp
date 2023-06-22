@@ -4,8 +4,9 @@
 #include<iostream>
 #include <conio.h>
 #include "ExternFile.h"
+#include "accountData.cpp"
 using namespace std;
-void Account_info(AccountData data){
+void Account_info(const AccountData& data){
     int shownub=10;
     int page=0,pages=data.getAccNumber()/shownub+1;
     if(data.getAccNumber()==0){
@@ -21,12 +22,18 @@ void Account_info(AccountData data){
                 cout<<data.getAccounts()[i]<<endl;
             }
             printf("------------------------------------------%d/%d------------------------------------------\n",page,pages);
-            cout<<"--------------------------下一页请按 → ，上一页请按 ← ，退出请按q---------------------------"<<endl;
+            cout<<"--------------------------下一页请按 → ，上一页请按 ← ， 退出请按q---------------------------"<<endl;
             n1=_getch(),n2=_getch();
-            if(n2==77) page++;
-            else if(n2==75) page--;
+            if(n2==77 && page<=pages) page++;
+            else if(n2==75 && page>0) page--;
         } while (n1!='q');
         system("cls");
     }
+}
+
+int main(){
+    AccountData a;
+    Account_info(a);
+    
 }
 

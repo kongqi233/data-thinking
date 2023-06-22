@@ -32,6 +32,9 @@ public:
     T& operator[](int i){
         return data[i];
     }
+    const T& operator[](int i)const{
+        return data[i];
+    }
     void erase(int pos){
         for(int i=pos+1;i<sizen;i++) data[i-1]=data[i];
         sizen--;

@@ -41,19 +41,19 @@ AccountData::AccountData(string path){
             getline(sin,word,',');
             account.balance=stod(word);
             getline(sin,word,',');
-            account.year=stod(word.substr(0,4));
-            account.month=stod(word.substr(4,2));
-            account.day=stod(word.substr(6,2));
-            account.hour=stod(word.substr(8,2));
-            account.minute=stod(word.substr(10,2));
-            account.second=stod(word.substr(12,2));
+            account.year=stoi(word.substr(0,4));
+            account.month=stoi(word.substr(4,2));
+            account.day=stoi(word.substr(6,2));
+            account.hour=stoi(word.substr(8,2));
+            account.minute=stoi(word.substr(10,2));
+            account.second=stoi(word.substr(12,2));
             getline(sin,word,',');
-            account.xyear=stod(word.substr(0,4));
-            account.xmonth=stod(word.substr(4,2));
-            account.xday=stod(word.substr(6,2));
-            account.xhour=stod(word.substr(8,2));
-            account.xminute=stod(word.substr(10,2));
-            account.xsecond=stod(word.substr(12,2));
+            account.xyear=stoi(word.substr(0,4));
+            account.xmonth=stoi(word.substr(4,2));
+            account.xday=stoi(word.substr(6,2));
+            account.xhour=stoi(word.substr(8,2));
+            account.xminute=stoi(word.substr(10,2));
+            account.xsecond=stoi(word.substr(12,2));
             getline(sin,word,',');
             account.tag=stoi(word);
             getline(sin,word,',');
@@ -149,7 +149,7 @@ void AccountData::addAccount(const Account& acc){
     return;
 }
 
-long long AccountData::getAccNumber(){
+long long AccountData::getAccNumber() const{
     return accountsNumber;
 }
 

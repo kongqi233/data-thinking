@@ -58,12 +58,12 @@ TradeData::TradeData(string path){
             getline(sin,word,',');
             info.money=stod(word);
             getline(sin,word,',');
-            info.year=stod(word.substr(0,4));
-            info.month=stod(word.substr(4,2));
-            info.day=stod(word.substr(6,2));
-            info.hour=stod(word.substr(8,2));
-            info.minute=stod(word.substr(10,2));
-            info.second=stod(word.substr(12,2));
+            info.year=stoi(word.substr(0,4));
+            info.month=stoi(word.substr(4,2));
+            info.day=stoi(word.substr(6,2));
+            info.hour=stoi(word.substr(8,2));
+            info.minute=stoi(word.substr(10,2));
+            info.second=stoi(word.substr(12,2));
             getline(sin,word);
             info.info=word;
             trade.addlist(info);
