@@ -8,10 +8,11 @@
 #include <functional>
 #include <iostream>
 #include <string>
+#include<iomanip>
 #include "myVector.cpp"
 #define OK 1
 #define ERROR 0
-#define OVERFLOW -1
+#define EXIT -1
 #define TRADELOG_PATH "../CAsystem/tradeLog.csv"
 #define ACCOUNT_PATH "../CAsystem/Account.csv"
 #define NAME_MAX_SIZE 30
@@ -39,7 +40,12 @@ struct Account{
     bool tag;
     myVector<string> tradeID;
     friend ostream& operator<<(ostream& os,const Account& acc){
-        os<<acc.SID<<"\t"<<acc.name<<"\t"<<acc.sex<<"\t"<<acc.telephone<<"\t"<<acc.cardID<<"\t"<<acc.IDnumber<<"\t"<<acc.password<<"\t";
+        os<<setw(16)<<"姓名:"<<acc.name<<"\n"
+        <<setw(16)<<"性别:"<<(acc.sex==Sex::MALE?"男":"女")<<"\n"
+        <<setw(16)<<"手机号:"<<acc.telephone<<"\n"
+        <<setw(16)<<"卡号:"<<acc.cardID<<"\n"
+        <<setw(16)<<"身份证号:"<<acc.IDnumber<<"\n"
+        <<setw(16)<<"余额:"<<acc.balance<<"\n";
         return os;
     }
 };
@@ -69,7 +75,7 @@ class AccountData{
     myVector<stoipair> phone,cardID,IDnumber;
     template<typename U,typename T>
     static void sort(T& q,int l,int r,std::function<bool(U,U)> const &f);
-    Account& find(const string& s,int n);
+    Account* find(const string& s,int n);
     void addAccount(const Account&);
     long long getAccNumber()const;
     const myVector<Account>& getAccounts()const{return accounts;}
@@ -98,5 +104,6 @@ Status Deposit(Account&,TradeData&);
 Status CreateTradeInfo(TradeData&,Account&,Account&,TradeType,double,string ="无");
 Status Transactions(Account& acc,TradeData& tr);
 Status Account_Closure(Account&);
+void Login(AccountData&,TradeData&);
 
 #endif

@@ -90,14 +90,14 @@ AccountData::AccountData(string path){
 AccountData::~AccountData(){
     ofstream out;
     out.open(ACCOUNT_PATH, ios::out | ios::trunc);
-    out<<accounts.size()<<endl;
-    for(int i=0;i<accounts.size();i++){
+    out<<accountsNumber<<endl;
+    for(int i=0;i<accountsNumber;i++){
         out<<accounts[i].SID<<","<<accounts[i].name<<","<<accounts[i].sex<<","<<accounts[i].telephone<<",";
         out<<accounts[i].cardID<<","<<accounts[i].IDnumber<<","<<accounts[i].password<<","<<accounts[i].balance<<",";
-        out<<setw(4)<<setfill('0')<<accounts[i].year<<setw(2)<<setfill('0')<<accounts[i].month<<setw(2)<<setfill('0')<<accounts[i].day<<setw(2)<<setfill('0')
+        out<<setw(4)<<setfill('0')<<accounts[i].year<<setw(2)<<accounts[i].month<<setw(2)<<accounts[i].day<<setw(2)
         <<accounts[i].hour<<setw(2)<<setfill('0')<<accounts[i].minute<<setw(2)<<setfill('0')<<accounts[i].second<<",";
-        out<<setw(4)<<setfill('0')<<accounts[i].xyear<<setw(2)<<setfill('0')<<accounts[i].xmonth<<setw(2)<<setfill('0')<<accounts[i].xday<<setw(2)<<setfill('0')
-        <<accounts[i].xhour<<setw(2)<<setfill('0')<<accounts[i].xminute<<setw(2)<<setfill('0')<<accounts[i].xsecond<<","<<accounts[i].tag<<",";
+        out<<setw(4)<<accounts[i].xyear<<setw(2)<<accounts[i].xmonth<<setw(2)<<accounts[i].xday<<setw(2)
+        <<accounts[i].xhour<<setw(2)<<accounts[i].xminute<<setw(2)<<accounts[i].xsecond<<","<<setfill(' ')<<accounts[i].tag<<",";
         for(int j=0;j<accounts[i].tradeID.size();j++){
             out<<accounts[i].tradeID[j]<<'.';
         }
@@ -121,7 +121,7 @@ void AccountData::sort(T& q,int l,int r,std::function<bool(U,U)> const &f){
     if(i<r) sort(q,i,r,f);
 }
 
-Account& AccountData::find(const string &s,int n){
+Account* AccountData::find(const string &s,int n){
     myVector<stoipair> &p=cardID;
     switch (n) {
         case 0: p=phone;break;
@@ -136,8 +136,8 @@ Account& AccountData::find(const string &s,int n){
             t=p[mid].value;break;
         }
     }
-    if(t==-1) cout<<"输入错误"<<endl;
-    else return accounts[t];
+    if(t==-1) return nullptr;
+    else return &accounts[t];
 }
 
 void AccountData::addAccount(const Account& acc){

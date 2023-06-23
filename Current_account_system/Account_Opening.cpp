@@ -10,6 +10,8 @@ Status CreateBack(string& judge){//判回退
     cin>>temp;
     if(temp.size()==1&&temp[0]=='b'||temp[0]=='B')
         return ERROR;
+    else if(temp.size()==1&&temp[0]=='E'||temp[0]=='e')
+        return EXIT;
     else
         judge=temp;
     return OK;
@@ -45,14 +47,15 @@ Status Account_Creating(Account& account){//获取开户信息
     string temp;
     cout<<"请输入您的名字:"<<endl;
     if(account.name==""){
-        if(CreateBack(temp))
+        if(CreateBack(temp)==OK)
             account.name=temp;
-        else return ERROR;
+        else return EXIT;
     }
     else cout<<account.name<<endl;
     cout<<"请输入您的性别:1.男 2.女"<<endl;
     if(account.sex==Sex::NONE){
-        if(CreateBack(temp)){
+        Status s=CreateBack(temp);
+        if(s==OK){
             if(temp.size()==1){
                 if(temp[0]=='1')
                     account.sex=Sex::MALE;
@@ -61,40 +64,43 @@ Status Account_Creating(Account& account){//获取开户信息
                 else return ERROR;
             }
             else return ERROR;
-        }else{
+        }else if(s==ERROR){
             account.name="";
             return ERROR;
-        }
+        }else return EXIT;
     }
     else cout<<to_string(account.sex)<<endl;
     cout<<"请输入您的手机号码:"<<endl;
     if(account.telephone==""){
-        if(CreateBack(temp)){
+        Status s=CreateBack(temp);
+        if(s==OK){
             account.telephone=temp;
-        }else{
+        }else if(s==ERROR){
             account.sex=Sex::NONE;
             return ERROR;
-        }
+        }else return EXIT;
     }
     else cout<<account.telephone<<endl;
     cout<<"请输入您的身份证号:"<<endl;
     if(account.IDnumber==""){
-        if(CreateBack(temp)){
+        Status s=CreateBack(temp);
+        if(s==OK){
             account.IDnumber=temp;
-        }else{
+        }else if(s==ERROR){
             account.telephone="";
             return ERROR;
-        }
+        }else return EXIT;
     }
     else cout<<account.IDnumber<<endl;
     cout<<"请输入您的密码:"<<endl;
     if(account.password==""){
-        if(CreateBack(temp)){
+        Status s=CreateBack(temp);
+        if(s==OK){
             account.password=temp;
-        }else{
+        }else if(s==ERROR){
             account.IDnumber="";
             return ERROR;
-        }
+        }else return EXIT;
     }
     if(!CreateCheck(account)){
         account.password="";
@@ -103,11 +109,18 @@ Status Account_Creating(Account& account){//获取开户信息
     return OK;
 }
 Status Account_Opening(AccountData& data){
+    system("cls");
     clock_t s,e;
     Account account;
     s=clock();
-    while(!Account_Creating(account)){
-        system("cls");
+    while(1){
+        Status s=Account_Creating(account);
+        if(s==ERROR)
+            system("cls");
+        else if(s==OK)
+            break;
+        else if(s==EXIT)
+            return ERROR;
     }
     e=clock();
     CreateCardID(account,(e-s)%1000);
@@ -115,6 +128,7 @@ Status Account_Opening(AccountData& data){
     GetTime(time);
     account.year=time[0];account.month=time[1];account.day=time[2];
     account.hour=time[3];account.minute=time[4];account.second=time[5];
+    account.xyear=account.xmonth=account.xday=account.xhour=account.xminute=account.xsecond=0;
     account.balance=0;
     AccountWrite(data,account);
     char c;

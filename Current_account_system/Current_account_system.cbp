@@ -44,6 +44,7 @@
 		<Unit filename="Deposit.cpp" />
 		<Unit filename="ExternFile.h" />
 		<Unit filename="GetTime.cpp" />
+		<Unit filename="Login.cpp" />
 		<Unit filename="TradeData.cpp" />
 		<Unit filename="Transactions.cpp" />
 		<Unit filename="Withdrawal.cpp" />

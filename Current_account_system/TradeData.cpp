@@ -11,20 +11,20 @@ void TradeData::addTrade(const TradeInfo& info){
 }
 TradeInfo& TradeData::find(const string& s){
     if(s.size()!=TRADEID_SIZE)
-        cout<<"交易流水号格式错误!"<<endl;
+        cout<<"交易流水号格式错误!1"<<endl;
     else{
         long long temp=0;
         int flag=0;
         for(int i=0;i<s.size();++i){
             if(s[i]<'0'||s[i]>'9'){
-                cout<<"交易流水号格式错误!"<<endl;
+                cout<<"交易流水号格式错误!2"<<endl;
                 flag=1;
                 break;
             }
             temp=temp*10+s[i]-'0';
         }
         if(temp>tradeNumber||flag)
-            cout<<"交易流水号格式错误!"<<endl;
+            cout<<"交易流水号格式错误!3"<<endl;
         else return trade[temp-1];
     }
 }
@@ -77,8 +77,8 @@ TradeData::~TradeData(){
     out.open(TRADELOG_PATH,ios::out | ios::trunc);
     for(int i=0;i<tradeNumber;i++){
         out<<trade[i].tradeID<<","<<to_string(trade[i].type)<<","<<trade[i].name<<","<<trade[i].cardID<<","<<trade[i].othername<<","<<trade[i].otherID
-        <<","<<trade[i].money<<","<<trade[i].year<<setw(2)<<setfill('0')<<trade[i].month<<setw(2)<<setfill('0')<<trade[i].day<<setw(2)<<setfill('0')
-        <<trade[i].hour<<setw(2)<<setfill('0')<<trade[i].minute<<setw(2)<<setfill('0')<<trade[i].second<<","<<trade[i].info<<endl;
+        <<","<<trade[i].money<<","<<trade[i].year<<setw(2)<<setfill('0')<<trade[i].month<<setw(2)<<trade[i].day<<setw(2)
+        <<trade[i].hour<<setw(2)<<trade[i].minute<<setw(2)<<trade[i].second<<","<<setfill(' ')<<trade[i].info<<endl;
     }
     out.close();
 }
