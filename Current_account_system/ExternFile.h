@@ -84,6 +84,7 @@ public:
     void addTrade(const TradeInfo&);
     TradeInfo& find(const string&);
     long long getTrNumber();
+    Status ShowAllInfo();
     //TradeInfo& test();
     TradeData(string path=TRADELOG_PATH);
     ~TradeData();
