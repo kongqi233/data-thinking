@@ -12,7 +12,10 @@ int main(){
         out<<s<<","<<Sex(i%2)<<",";
         s="13900000000";
         for(int i=3;i<s.length();i++) s[i]+=rand()%10;
-        out<<s<<","<<(long long)(rand()%10000*(long long)1e12+rand()%10000*(long long)1e8+rand()%10000*(long long)1e4+rand()%10000)<<",";
+        out<<s<<",";
+        s="1000000000000000";
+        for(auto &i:s) i+=rand()%9;
+        out<<s<<",";
         s="110101000000000000";
         for(int i=6;i<s.length();i++) s[i]+=rand()%10;
         out<<s<<",";

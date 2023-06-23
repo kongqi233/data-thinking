@@ -1,14 +1,14 @@
 /*
 *显示所有账户信息(管理员模式)
 */
-#include<iostream>
+#include <iostream>
 #include <conio.h>
+#include <math.h>
 #include "ExternFile.h"
-#include "accountData.cpp"
 using namespace std;
 void Account_info(const AccountData& data){
-    int shownub=10;
-    int page=0,pages=data.getAccNumber()/shownub+1;
+    int shownub=20;
+    int page=0,pages=ceil(data.getAccNumber()/shownub);
     if(data.getAccNumber()==0){
         cout<<"无信息...请添加账户信息"<<endl;
     }
@@ -17,23 +17,17 @@ void Account_info(const AccountData& data){
         do
         {
             system("cls");
-            cout<<"SID\t"<<endl;
+            cout<<"SID"<<endl;
             for(int i=page*shownub;i<page*shownub+shownub;i++){
                 cout<<data.getAccounts()[i]<<endl;
             }
-            printf("------------------------------------------%d/%d------------------------------------------\n",page,pages);
-            cout<<"--------------------------下一页请按 → ，上一页请按 ← ， 退出请按q---------------------------"<<endl;
+            printf("------------------------------------------%d/%d------------------------------------------\n",page+1,pages);
+            printf("--------------------------下一页请按 → ，上一页请按 ← ， 退出请按q---------------------------\n");
             n1=_getch(),n2=_getch();
-            if(n2==77 && page<=pages) page++;
+            if(n2==77 && page<pages-1) page++;
             else if(n2==75 && page>0) page--;
         } while (n1!='q');
         system("cls");
     }
-}
-
-int main(){
-    AccountData a;
-    Account_info(a);
-    
 }
 
