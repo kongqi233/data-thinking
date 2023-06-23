@@ -69,7 +69,7 @@ class AccountData{
     myVector<stoipair> phone,cardID,IDnumber;
     template<typename U,typename T>
     static void sort(T& q,int l,int r,std::function<bool(U,U)> const &f);
-    Account& find(const string& s,int n);
+    Account* find(const string& s,int n);
     void addAccount(const Account&);
     long long getAccNumber()const;
     const myVector<Account>& getAccounts()const{return accounts;}

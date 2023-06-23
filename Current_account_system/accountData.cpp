@@ -121,7 +121,7 @@ void AccountData::sort(T& q,int l,int r,std::function<bool(U,U)> const &f){
     if(i<r) sort(q,i,r,f);
 }
 
-Account& AccountData::find(const string &s,int n){
+Account* AccountData::find(const string &s,int n){
     myVector<stoipair> &p=cardID;
     switch (n) {
         case 0: p=phone;break;
@@ -137,7 +137,7 @@ Account& AccountData::find(const string &s,int n){
         }
     }
     if(t==-1) cout<<"输入错误"<<endl;
-    else return accounts[t];
+    else return &accounts[t];
 }
 
 void AccountData::addAccount(const Account& acc){
