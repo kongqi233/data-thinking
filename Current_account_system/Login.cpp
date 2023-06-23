@@ -6,6 +6,7 @@ int login(int flag=1){
     char c;
     do{
         system("cls");
+        cout<<"             活期账户储蓄系统"<<endl;
         cout<<"============================================="<<endl;
         cout<<"|             请选择您的登录方式            |"<<endl;
         cout<<"|                                           |"<<endl;
