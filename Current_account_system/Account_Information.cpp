@@ -6,7 +6,7 @@
 #include <math.h>
 #include "ExternFile.h"
 using namespace std;
-void Account_info(const AccountData& data){
+Status Account_info(const AccountData& data){
     int shownub=20;
     int page=0,pages=ceil(data.getAccNumber()/shownub);
     if(data.getAccNumber()==0){
@@ -29,5 +29,6 @@ void Account_info(const AccountData& data){
         } while (n1!='q');
         system("cls");
     }
+    return OK;
 }
 

@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include <iostream>
 #include "ExternFile.h"
 using namespace std;
 int main(){

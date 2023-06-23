@@ -1,7 +1,7 @@
 #include<iostream>
 #include<fstream>
 #include<sstream>
-#include<Iomanip>
+#include<iomanip>
 #include "ExternFile.h"
 using namespace std;
 void TradeData::addTrade(const TradeInfo& info){
