@@ -90,6 +90,7 @@ public:
     void addTrade(const TradeInfo&);
     TradeInfo& find(const string&);
     long long getTrNumber();
+    Status ShowAllInfo();
     //TradeInfo& test();
     TradeData(string path=TRADELOG_PATH);
     ~TradeData();
@@ -104,6 +105,10 @@ Status Deposit(Account&,TradeData&);
 Status CreateTradeInfo(TradeData&,Account&,Account&,TradeType,double,string ="无");
 Status Transactions(Account& acc,TradeData& tr);
 Status Account_Closure(Account&);
+<<<<<<< HEAD
 void Login(AccountData&,TradeData&);
+=======
+Status Account_info(const AccountData& data);
+>>>>>>> f874f899d840b4f6038ee0b0542c89d86a1feb5d
 
 #endif

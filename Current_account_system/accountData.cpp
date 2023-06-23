@@ -136,7 +136,11 @@ Account* AccountData::find(const string &s,int n){
             t=p[mid].value;break;
         }
     }
+<<<<<<< HEAD
     if(t==-1) return nullptr;
+=======
+    if(t==-1) cout<<"输入错误"<<endl;
+>>>>>>> f874f899d840b4f6038ee0b0542c89d86a1feb5d
     else return &accounts[t];
 }
 
