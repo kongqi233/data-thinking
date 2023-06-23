@@ -17,7 +17,7 @@ void Account_info(const AccountData& data){
         do
         {
             system("cls");
-            cout<<"SID"<<endl;
+            cout<<"SID"<<"     name"<<"   sex       telephone         cardID                   IDnumber           balance"<<endl;
             for(int i=page*shownub;i<page*shownub+shownub;i++){
                 cout<<data.getAccounts()[i]<<endl;
             }
