@@ -19,6 +19,8 @@ int login(int flag=1){
             cout<<"|                管理员登录                 |"<<endl;
             cout<<"|                                           |"<<endl;
             cout<<"|                 用户注册                  |"<<endl;
+            cout<<"|                                           |"<<endl;
+            cout<<"|(w/W)上移  (s/S)下移   (e/E)进入  (q/Q)退出|"<<endl;
 
         }
         else if(flag==2){
@@ -27,6 +29,8 @@ int login(int flag=1){
             cout<<"|          ----  管理员登录  ----           |"<<endl;
             cout<<"|                                           |"<<endl;
             cout<<"|                 用户注册                  |"<<endl;
+            cout<<"|                                           |"<<endl;
+            cout<<"|(w/W)上移  (s/S)下移   (e/E)进入  (q/Q)退出|"<<endl;
         }
         else if(flag==3){
             cout<<"|                 用户登录                  |"<<endl;
@@ -34,6 +38,8 @@ int login(int flag=1){
             cout<<"|                管理员登录                 |"<<endl;
             cout<<"|                                           |"<<endl;
             cout<<"|           ----  用户注册  ----            |"<<endl;
+            cout<<"|                                           |"<<endl;
+            cout<<"|(w/W)上移  (s/S)下移   (e/E)进入  (q/Q)退出|"<<endl;
         }
         cout<<"|                                           |"<<endl;
         cout<<"============================================="<<endl;
