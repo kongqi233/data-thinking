@@ -114,5 +114,5 @@ Status Account_Closure(Account&,AccountData&);
 void Login(AccountData&,TradeData&);
 Status Account_info(AccountData&);
 Status Trade_AllInfo(TradeData&);
-
+Status transfer(Account & account,TradeData & trade);
 #endif
