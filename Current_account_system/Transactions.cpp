@@ -8,7 +8,9 @@
 #include "ExternFile.h"
 using namespace std;
 Status Transactions(Account& acc,TradeData& tr){
-    cout<<"您的交易信息如下:"<<endl;
+    system("cls");
+    char c;
+    cout<<"交易信息如下:"<<endl;
     string temp;
     TradeInfo info;
     cout<<"-------------------------------------"<<endl;
@@ -29,9 +31,10 @@ Status Transactions(Account& acc,TradeData& tr){
         cout<<setfill(' ')<<setw(16)<<"交易备注:"<<info.info<<endl;
         cout<<"-------------------------------------"<<endl;
     }
+    system("pause");
     return OK;
 }
-Status Trade_AllInfo(TradeData& tr){
+Status Trade_AllInfo(TradeData& tr,AccountData& acc){
     int shownub=30;
     int page=0,pages=ceil(tr.getTrNumber()/shownub);
     if(tr.getTrNumber()==0){
@@ -51,10 +54,40 @@ Status Trade_AllInfo(TradeData& tr){
             if(n2==77 && page<pages-1) page++;
             else if(n2==75 && page>0) page--;
             else if(n1=='f'){
-                cout<<"请选择查询方式：1.流水号 2.时间 3.账号"<<endl;
+                cout<<"请选择查询方式：1.流水号 2.时间 3.卡号"<<endl;
                 int n;cin>>n;
                 TradeInfo* p;
+                string s;
                 switch (n) {
+                case 1:{
+                    cout<<"请输入流水号:"<<endl;
+                    cin>>s;
+                    p=tr.find(s);
+                    if(p!=nullptr){
+                        system("cls");
+                        cout<<"tradeID"<<" "<<"type"<<" "<<"name"<<" "<<"cardID"<<" "<<"another name"<<" "<<"another cardID"<<" "<<"time"<<" "<<"info"<<endl;
+                        cout<<*p<<endl;
+                        system("pause");
+                    }
+                    else{
+                        cout<<"输入有误!"<<endl;
+                        _sleep(1000);
+                    }
+                    break;
+                }
+                case 2:
+                    break;
+                case 3:{
+                    cout<<"请输入账户卡号:"<<endl;
+                    cin>>s;
+                    Account* a=acc.find(s,2);
+                    if(a!=nullptr)
+                        Transactions(*a,tr);
+                    else{
+                        cout<<"输入有误!"<<endl;
+                        _sleep(1000);
+                    }
+                }
                 default:
                     break;
                 }
