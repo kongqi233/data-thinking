@@ -5,6 +5,7 @@
 #include<iomanip>
 #include<math.h>
 #include<conio.h>
+#include <type_traits>
 #include "ExternFile.h"
 using namespace std;
 Status Transactions(Account& acc,TradeData& tr){
@@ -56,6 +57,41 @@ Status Trade_AllInfo(TradeData& tr){
                 TradeInfo* p;
                 switch (n) {
                 default:
+
+                    case 2:{
+                        cout<<"请输入需要查找的日期，如20230612";
+                        string s;cin>>s;bool f=false;
+                        int year=stoi(s.substr(0,4)),month=stoi(s.substr(4,2)),day=stoi(s.substr(6,2));
+                        int tpage,tpages,cnt,size=0;
+                        for(int i=0;i<tr.getTrades().size();i++){
+                            if(tr.getTrades()[i].year==year  &&tr.getTrades()[i].month==month && tr.getTrades()[i].day==day){
+                                if(!f){
+                                    f=true;tpage=0;cnt=i;
+                                }
+                                size++;
+                            }
+                        }
+                        if(!f){
+                            cout<<"输入有误"<<endl;
+                            _sleep(1000);
+                        }
+                        else{
+                            char tn1,tn2;
+                            tpages=ceil(size/shownub);
+                            do {
+                                system("cls");
+                                cout<<"tradeID"<<" "<<"type"<<" "<<"name"<<" "<<"cardID"<<" "<<"another name"<<" "<<"another cardID"<<" "<<"time"<<" "<<"info"<<endl;
+                                for(int i=tpage*shownub+cnt;i<tpage*shownub+shownub && i-tpage*shownub-cnt<size;i++){
+                                    cout<<tr.getTrades()[i]<<endl;
+                                }
+                                printf("------------------------------------------------%d/%d---------------------------------------------\n",page+1,pages);
+                                printf("-----------------------------------下一页请按 → ，上一页请按 ← ------------------------------------\n");
+                                tn1=_getch(),tn2=_getch();
+                                if(tn2==77 && tpage<tpages-1) tpage++;
+                                else if(tn2==75 && tpage>0) tpage--;
+                            }while (tn1!='q');
+                        }
+                    }
                     break;
                 }
             }
