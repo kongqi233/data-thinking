@@ -59,10 +59,10 @@ struct TradeInfo{
     double money;//交易金额
     short int year,month,day,hour,minute,second;//交易时间
     string info="无";//交易备注
-    friend ostream& operator<<(ostream& os,const TradeInfo& tr){
-        os<<tr.tradeID<<"\t"<<tr.type<<"\t"<<tr.name<<"\t"<<tr.cardID<<"\t"<<tr.othername<<"\t"<<tr.otherID<<"\t"<<tr.money<<"\t"
-        <<tr.year<<"-"<<setw(2)<<setfill('0')<<tr.month<<"-"<<setw(2)<<tr.day<<" "
-        <<setw(2)<<tr.hour<<":"<<setw(2)<<tr.minute<<":"<<setw(2)<<tr.second<<setfill(' ')<<"\t"<<tr.info;
+    friend ostream& operator<<(ostream& os,const TradeInfo& info){
+        cout<<left<<setw(18)<<setfill(' ')<<info.tradeID<<setw(18)<<info.type<<setw(18)<<info.name<<setw(18)<<info.cardID<<setw(18)<<info.othername
+            <<setw(18)<<info.otherID<<setw(18)<<info.money<<right<<info.year<<setw(2)<<setfill('0')<<info.month<<setw(2)<<setfill('0')<<info.day<<setw(2)<<setfill('0')
+            <<info.hour<<setw(2)<<setfill('0')<<info.minute<<setw(2)<<setfill('0')<<info.second<<"    "<<info.info<<setfill(' ');
         return os;
     }
 };
