@@ -129,6 +129,7 @@ Account* AccountData::find(const string &s,int n){
     switch (n) {
         case 0: p=phone;break;
         case 1: p=IDnumber;break;
+        case 2: p=cardID;break;
         default:break;
     }
     int t=-1,l=0,r=p.size()-1,mid;
