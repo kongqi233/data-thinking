@@ -22,6 +22,7 @@ Status CreateTradeInfo(TradeData& tr,Account& acc1,Account& acc2,TradeType type,
         info2.type=TradeType::FROM;
         info2.name=acc2.name;
         info2.cardID=acc2.cardID;
+        info2.money=money;
         info2.othername=acc1.name;
         info2.otherID=acc1.cardID;
     }

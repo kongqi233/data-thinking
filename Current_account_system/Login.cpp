@@ -67,6 +67,7 @@ Status user(Account& acc,AccountData& data,TradeData& tr){
         Withdrawal(acc,tr);
         break;
        case '4':
+        transfer(acc,data,tr);
         break;
        case '5':{
         system("cls");
