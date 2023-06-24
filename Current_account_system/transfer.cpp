@@ -1,0 +1,70 @@
+/*
+ * 账户转账
+ */
+#include<iostream>
+#include "ExternFile.h"
+using namespace std;
+Status transfer(Account & account,TradeData & trade){
+    double n=0;
+    string pass="",ID="",tocardnum="";
+    bool flag=true;
+    cout<<"请输入要转入的目标账户："<<endl;
+    cin>>tocardnum;
+    AccountData  accdata;
+    Account &acc2=accdata.find(tocardnum,2);
+    cout<<"已找到"<<endl;
+    do{
+        //system("cls");
+        cout<<"当前账号余额为:"<<account.balance<<endl;
+        cout<<"请输入转账金额:"<<endl;
+        cin>>n;
+        if(n<0.01){
+            system("cls");
+            cout<<"请输入合法金额!"<<endl;
+            _sleep(1000);
+        }
+        else if(n>account.balance){
+            system("cls");
+            cout<<"余额不足!"<<endl;
+            _sleep(1000);
+        }
+        else{
+            do{
+                system("cls");
+                cout<<"金额:"<<n<<endl;
+                cout<<"请输入账户密码:"<<endl;
+                if(pass!=account.password){
+                    cin>>pass;
+                    if(pass!=account.password){
+                        system("cls");
+                        cout<<"密码错误，请重新输入!"<<endl;
+                        _sleep(1000);
+                    }
+                }else cout<<"******"<<endl;
+                if(n>=50000&&pass==account.password){
+                    cout<<"请输入身份证号确认:"<<endl;
+                    cin>>ID;
+                    if(ID!=account.IDnumber){
+                        system("cls");
+                        cout<<"身份证号错误，请重新输入!"<<endl;
+                        _sleep(1000);
+                    }
+                    else{
+                        system("cls");
+                        cout<<"验证成功!"<<endl;
+                        _sleep(1000);
+                    }
+                }
+            }while(pass!=account.password||(n>=50000&&ID!=account.IDnumber));
+            account.balance-=n;
+            acc2.balance+=n;
+            system("cls");
+            CreateTradeInfo(trade,account,acc2,TradeType::TO,n);
+            CreateTradeInfo(trade,acc2,account,TradeType::FROM,n);
+            cout<<"转账成功!\n当前账号余额为:"<<account.balance<<endl;
+            flag=false;
+            system("pause");
+        }
+    }while(flag);
+    return OK;
+}
