@@ -42,7 +42,11 @@ struct Account{
     bool tag;
     myVector<string> tradeID;
     friend ostream& operator<<(ostream& os,const Account& acc){
-        os<<acc.SID<<"\t"<<acc.name<<"\t"<<acc.sex<<"\t"<<acc.telephone<<"\t"<<acc.cardID<<"\t"<<acc.IDnumber<<"\t"<<acc.password<<"\t";
+        os<<acc.SID<<"\t"<<acc.name<<"\t"<<acc.sex<<"\t"<<acc.telephone<<"\t"<<acc.cardID<<"\t"<<acc.IDnumber<<"\t"<<acc.balance<<"\t"
+        <<acc.year<<"-"<<setw(2)<<setfill('0')<<acc.month<<"-"<<setw(2)<<acc.day<<" "
+        <<setw(2)<<acc.hour<<":"<<setw(2)<<acc.minute<<":"<<setw(2)<<acc.second<<"\t"
+        <<setw(4)<<acc.xyear<<"-"<<setw(2)<<setfill('0')<<acc.xmonth<<"-"<<setw(2)<<acc.xday<<" "
+        <<setw(2)<<acc.xhour<<":"<<setw(2)<<acc.xminute<<":"<<setw(2)<<acc.xsecond<<setfill(' ')<<"\t"<<acc.tag;
         return os;
     }
 };

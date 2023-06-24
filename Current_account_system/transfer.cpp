@@ -15,6 +15,8 @@ Status transfer(Account& account,AccountData& accdata,TradeData& trade)
         system("cls");
         cout<<"请输入转账账户:"<<endl;
         cin>>tocardnum;
+        if(tocardnum=="Q"||tocardnum=="q")
+            return ERROR;
         acc2=accdata.find(tocardnum,2);
         if(acc2!=nullptr)
             break;
@@ -52,6 +54,8 @@ Status transfer(Account& account,AccountData& accdata,TradeData& trade)
                 if(pass!=account.password)
                 {
                     pass=getpass();
+                    if(pass=="Q"||pass=="q")
+                        return ERROR;
                     if(pass!=account.password)
                     {
                         system("cls");
@@ -64,6 +68,8 @@ Status transfer(Account& account,AccountData& accdata,TradeData& trade)
                 {
                     cout<<"请输入身份证号确认:"<<endl;
                     cin>>ID;
+                    if(ID=="Q"||ID=="q")
+                        return ERROR;
                     if(ID!=account.IDnumber)
                     {
                         system("cls");

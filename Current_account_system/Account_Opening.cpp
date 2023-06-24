@@ -11,7 +11,7 @@ Status CreateBack(string& judge){//判回退
     cin>>temp;
     if(temp.size()==1&&temp[0]=='b'||temp[0]=='B')
         return ERROR;
-    else if(temp.size()==1&&temp[0]=='E'||temp[0]=='e')
+    else if(temp.size()==1&&temp[0]=='Q'||temp[0]=='q')
         return EXIT;
     else
         judge=temp;
@@ -49,9 +49,12 @@ Status Account_Creating(Account& account){//获取开户信息
     string temp;
     cout<<"请输入您的名字:"<<endl;
     if(account.name==""){
-        if(CreateBack(temp)==OK)
+        Status s=CreateBack(temp);
+        if(s==OK&&temp.size()>1&&temp.size()<NAME_MAX_SIZE)
             account.name=temp;
-        else return EXIT;
+        else if(s==EXIT)
+            return EXIT;
+        else return ERROR;
     }
     else cout<<account.name<<endl;
     cout<<"请输入您的性别:1.男 2.女"<<endl;
@@ -75,29 +78,37 @@ Status Account_Creating(Account& account){//获取开户信息
     cout<<"请输入您的手机号码:"<<endl;
     if(account.telephone==""){
         Status s=CreateBack(temp);
-        if(s==OK){
+        if(s==OK&&temp.size()==TELEPHONE_SIZE){
             account.telephone=temp;
-        }else if(s==ERROR){
+        }else if(s==EXIT)
+            return EXIT;
+        else if(s==ERROR){
             account.sex=Sex::NONE;
             return ERROR;
-        }else return EXIT;
+        }
+        else
+            return ERROR;
     }
     else cout<<account.telephone<<endl;
     cout<<"请输入您的身份证号:"<<endl;
     if(account.IDnumber==""){
         Status s=CreateBack(temp);
-        if(s==OK){
+        if(s==OK&&temp.size()==IDNUMBER_SIZE){
             account.IDnumber=temp;
-        }else if(s==ERROR){
+        }else if(s==EXIT)
+            return EXIT;
+        else if(s==ERROR){
             account.telephone="";
             return ERROR;
-        }else return EXIT;
+        }
+        else
+            return ERROR;
     }
     else cout<<account.IDnumber<<endl;
     cout<<"请输入您的密码:"<<endl;
     if(account.password==""){
         temp=getpass();
-        if(temp!="B"&&temp!="b"&&temp!="E"&&temp!="e"){
+        if(temp!="B"&&temp!="b"&&temp!="Q"&&temp!="q"&&temp.size()==PASSWORD_SIZE){
             account.password=temp;
         }else if(temp=="B"||temp=="b"){
             account.IDnumber="";
@@ -150,7 +161,7 @@ Status Account_Opening(AccountData& data){
         cout<<"----------------------------------"<<endl;
         c=_getch();
         if(c=='E'||c=='e')
-            exit(0);
+            return EXIT;
     }while(c!='B'&&c!='b'&&c!='E'&&c!='e');
     return OK;
 }

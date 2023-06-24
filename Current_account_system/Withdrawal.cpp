@@ -30,6 +30,8 @@ Status Withdrawal(Account& account,TradeData& trade){
                 cout<<"请输入账户密码:"<<endl;
                 if(pass!=account.password){
                     pass=getpass();
+                    if(pass=="Q"||pass=="q")
+                        return ERROR;
                     if(pass!=account.password){
                         system("cls");
                         cout<<"密码错误，请重新输入!"<<endl;
@@ -39,6 +41,8 @@ Status Withdrawal(Account& account,TradeData& trade){
                 if(n>=50000&&pass==account.password){
                     cout<<"请输入身份证号确认:"<<endl;
                     cin>>ID;
+                    if(ID=="Q"||ID=="q")
+                        return ERROR;
                     if(ID!=account.IDnumber){
                         system("cls");
                         cout<<"身份证号错误，请重新输入!"<<endl;

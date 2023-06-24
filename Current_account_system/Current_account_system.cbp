@@ -54,6 +54,7 @@
 		<Unit filename="test.cpp">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="transfer.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

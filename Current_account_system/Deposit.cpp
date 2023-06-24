@@ -22,6 +22,8 @@ Status Deposit(Account& account,TradeData& trade){
                 if(pass!=account.password){
                     cout<<"请输入账户密码:"<<endl;
                     pass=getpass();
+                    if(pass=="Q"||pass=="q")
+                        return ERROR;
                     if(pass!=account.password){
                         system("cls");
                         cout << "密码错误,请重新输入!" << endl;
@@ -33,6 +35,8 @@ Status Deposit(Account& account,TradeData& trade){
                     system("cls");
                     cout << "请输入身份证号验证:" << endl;
                     cin >> ID;
+                    if(ID=="Q"||ID=="q")
+                        return ERROR;
                     if(ID!=account.IDnumber){
                         system("cls");
                         cout << "身份证号错误，请重新输入!" << endl;

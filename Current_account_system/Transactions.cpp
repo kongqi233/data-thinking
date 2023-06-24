@@ -86,7 +86,7 @@ Status Trade_AllInfo(TradeData& tr,AccountData& acc){
                     break;
                 }
                 case 2:{
-                    cout<<"请输入需要查找的日期，如20230612";
+                    cout<<"请输入需要查找的日期，如20230612"<<endl;
                     string s;cin>>s;bool f=false;
                     int year=stoi(s.substr(0,4)),month=stoi(s.substr(4,2)),day=stoi(s.substr(6,2));
                     int tpage,tpages,cnt,size=0;
