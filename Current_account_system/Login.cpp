@@ -70,7 +70,7 @@ Status user(Account& acc,AccountData& data,TradeData& tr){
         system("cls");
         char c;
         cout<<"姓名:"<<acc.name<<endl;
-        cout<<"账号:"<<acc.cardID.substr(0,4)<<" **** **** "<<acc.cardID.substr(12,4)<<endl;
+        cout<<"卡号:"<<acc.cardID.substr(0,4)<<" **** **** "<<acc.cardID.substr(12,4)<<endl;
         cout<<"------------------------------------------------------------------------"<<endl;
         cout<<"1.余额 2.存款 3.取款 4.转账 5.账户 6.销户 7.交易记录 8.退出登录 9.退出系统"<<endl;
         cout<<"------------------------------------------------------------------------"<<endl;
