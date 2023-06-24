@@ -1,6 +1,8 @@
+#include <cstdio>
 #include<iostream>
 #include<iomanip>
 #include<conio.h>
+#include <unistd.h>
 #include"ExternFile.h"
 using namespace std;
 int login(int flag=1){
@@ -46,6 +48,22 @@ int login(int flag=1){
             return flag;
     }while(1);
 }
+string getpass(){
+    string s;
+    char c;
+    do {
+        c=_getch();
+        if(c=='8'){
+            printf("\b \b");
+            s.pop_back();
+        }
+        else {
+            putchar('*');
+            s.push_back(c);
+        }
+    }while (c!='13');
+    return s;
+}
 Status user(Account& acc,AccountData& data,TradeData& tr){
     do{
         system("cls");
@@ -75,7 +93,7 @@ Status user(Account& acc,AccountData& data,TradeData& tr){
         do{
             system("cls");
             cout<<"请输入账户密码:";
-            cin>>pass;
+            pass=getpass();
         }while(pass!=acc.password&&pass!="b"&&pass!="B");
         if(pass=="b"||pass=="B")
             break;
