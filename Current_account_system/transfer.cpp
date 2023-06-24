@@ -1,6 +1,6 @@
 /*
- * ÕË»§×ªÕË
- */
+* è´¦æˆ·è½¬è´¦
+*/
 #include<iostream>
 #include "ExternFile.h"
 using namespace std;
@@ -8,60 +8,59 @@ Status transfer(Account & account,TradeData & trade){
     double n=0;
     string pass="",ID="",tocardnum="";
     bool flag=true;
-    cout<<"ÇëÊäÈëÒª×ªÈëµÄÄ¿±êÕË»§£º"<<endl;
+    cout<<"è¯·è¾“å…¥è¦è½¬å…¥çš„ç›®æ ‡è´¦æˆ·ï¼š"<<endl;
     cin>>tocardnum;
-    AccountData  accdata;
-    Account &acc2=accdata.find(tocardnum,2);
-    cout<<"ÒÑÕÒµ½"<<endl;
+    AccountData accdata;
+    Account * acc2=accdata.find(tocardnum,2);
+    cout<<"å·²æ‰¾åˆ°"<<endl;
     do{
-        //system("cls");
-        cout<<"µ±Ç°ÕËºÅÓà¶îÎª:"<<account.balance<<endl;
-        cout<<"ÇëÊäÈë×ªÕË½ð¶î:"<<endl;
+//system("cls");
+        cout<<"å½“å‰è´¦å·ä½™é¢ä¸º:"<<account.balance<<endl;
+        cout<<"è¯·è¾“å…¥è½¬è´¦é‡‘é¢:"<<endl;
         cin>>n;
         if(n<0.01){
             system("cls");
-            cout<<"ÇëÊäÈëºÏ·¨½ð¶î!"<<endl;
+            cout<<"è¯·è¾“å…¥åˆæ³•é‡‘é¢!"<<endl;
             _sleep(1000);
         }
         else if(n>account.balance){
             system("cls");
-            cout<<"Óà¶î²»×ã!"<<endl;
+            cout<<"ä½™é¢ä¸è¶³!"<<endl;
             _sleep(1000);
         }
         else{
             do{
                 system("cls");
-                cout<<"½ð¶î:"<<n<<endl;
-                cout<<"ÇëÊäÈëÕË»§ÃÜÂë:"<<endl;
+                cout<<"é‡‘é¢:"<<n<<endl;
+                cout<<"è¯·è¾“å…¥è´¦æˆ·å¯†ç :"<<endl;
                 if(pass!=account.password){
                     cin>>pass;
                     if(pass!=account.password){
                         system("cls");
-                        cout<<"ÃÜÂë´íÎó£¬ÇëÖØÐÂÊäÈë!"<<endl;
+                        cout<<"å¯†ç é”™è¯¯ï¼Œè¯·é‡æ–°è¾“å…¥!"<<endl;
                         _sleep(1000);
                     }
                 }else cout<<"******"<<endl;
                 if(n>=50000&&pass==account.password){
-                    cout<<"ÇëÊäÈëÉí·ÝÖ¤ºÅÈ·ÈÏ:"<<endl;
+                    cout<<"è¯·è¾“å…¥èº«ä»½è¯å·ç¡®è®¤:"<<endl;
                     cin>>ID;
                     if(ID!=account.IDnumber){
                         system("cls");
-                        cout<<"Éí·ÝÖ¤ºÅ´íÎó£¬ÇëÖØÐÂÊäÈë!"<<endl;
+                        cout<<"èº«ä»½è¯å·é”™è¯¯ï¼Œè¯·é‡æ–°è¾“å…¥!"<<endl;
                         _sleep(1000);
                     }
                     else{
                         system("cls");
-                        cout<<"ÑéÖ¤³É¹¦!"<<endl;
+                        cout<<"éªŒè¯æˆåŠŸ!"<<endl;
                         _sleep(1000);
                     }
                 }
             }while(pass!=account.password||(n>=50000&&ID!=account.IDnumber));
             account.balance-=n;
-            acc2.balance+=n;
+            acc2->balance+=n;
             system("cls");
-            CreateTradeInfo(trade,account,acc2,TradeType::TO,n);
-            CreateTradeInfo(trade,acc2,account,TradeType::FROM,n);
-            cout<<"×ªÕË³É¹¦!\nµ±Ç°ÕËºÅÓà¶îÎª:"<<account.balance<<endl;
+            CreateTradeInfo(trade,account,*acc2,TradeType::TO,n);
+            cout<<"è½¬è´¦æˆåŠŸ!\nå½“å‰è´¦å·ä½™é¢ä¸º:"<<account.balance<<endl;
             flag=false;
             system("pause");
         }
