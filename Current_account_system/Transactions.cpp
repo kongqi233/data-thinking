@@ -37,7 +37,7 @@ Status Transactions(Account& acc,TradeData& tr){
 }
 Status Trade_AllInfo(TradeData& tr,AccountData& acc){
     int shownub=30;
-    int page=0,pages=ceil(tr.getTrNumber()/shownub);
+    int page=0,pages=ceil(tr.getTrNumber()*1.0/shownub);
     if(tr.getTrNumber()==0){
         cout<<"暂无交易信息"<<endl;
         _sleep(1000);
@@ -47,7 +47,7 @@ Status Trade_AllInfo(TradeData& tr,AccountData& acc){
         do{
             system("cls");
             cout<<"tradeID"<<" "<<"type"<<" "<<"name"<<" "<<"cardID"<<" "<<"another name"<<" "<<"another cardID"<<" "<<"time"<<" "<<"info"<<endl;
-            for(int i=page*shownub;i<page*shownub+shownub;i++){
+            for(int i=page*shownub;i<page*shownub+shownub&&i<tr.getTrNumber();i++){
                 cout<<tr.getTrades()[i]<<endl;
             }
             printf("------------------------------------------------%d/%d---------------------------------------------\n",page+1,pages);

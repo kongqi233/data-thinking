@@ -18,7 +18,7 @@ Status Account_info(AccountData& data){
         do{
             system("cls");
             cout<<"SID"<<"     name"<<"   sex       telephone         cardID                   IDnumber           balance"<<endl;
-            for(int i=page*shownub;i<page*shownub+shownub;i++){
+            for(int i=page*shownub;i<page*shownub+shownub&&i<data.getAccNumber();i++){
                 cout<<data.getAccounts()[i]<<endl;
             }
             printf("------------------------------------------------%d/%d---------------------------------------------\n",page+1,pages);
