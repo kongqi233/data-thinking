@@ -113,6 +113,7 @@ Status Transactions(Account& acc,TradeData& tr);
 Status Account_Closure(Account&,AccountData&);
 void Login(AccountData&,TradeData&);
 Status Account_info(AccountData&);
-Status Trade_AllInfo(TradeData&);
-Status transfer(Account & account,TradeData & trade);
+Status Trade_AllInfo(TradeData&,AccountData&);
+Status transfer(Account&,TradeData&);
+
 #endif

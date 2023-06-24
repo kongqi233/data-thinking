@@ -142,11 +142,14 @@ Status admin(AccountData& acc,TradeData& tr){
             Account_info(acc);
             break;
         case '3':
-            Trade_AllInfo(tr);
+            Trade_AllInfo(tr,acc);
             break;
+        case '4':
+            return OK;
+        case '5':
+            exit(0);
         }
     }while(1);
-    return OK;
 }
 void Login(AccountData& acc,TradeData& tr){
     int flag;
