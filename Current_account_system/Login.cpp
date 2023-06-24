@@ -57,13 +57,12 @@ string getpass(){
             printf("\b \b");
             s.pop_back();
         }
-        else {
-            if(c!=13){
-                putchar('*');
-                s.push_back(c);
-            }
+        else if(c!=13){
+            putchar('*');
+            s.push_back(c);
         }
     }while(c!=13);
+    putchar('\n');
     return s;
 }
 Status user(Account& acc,AccountData& data,TradeData& tr){
@@ -220,7 +219,6 @@ void Login(AccountData& acc,TradeData& tr){
                 system("cls");
                 cout<<"请输入管理员账号:";
                 ID=getpass();
-                cout<<endl;
                 cout<<"请输入管理员密码:";
                 pass=getpass();
                 system("cls");

@@ -113,11 +113,11 @@ AccountData::~AccountData(){
 template<typename U,typename T>
 void AccountData::sort(T& q,int l,int r,std::function<bool(U,U)> const &f){
     int i=l,j=r;
-    auto min=(l+r)/2;
+    auto min=q[(l+r)/2];
     while (i<=j)
     {
-        while (f(q[i],q[min])) i++;
-        while (f(q[min],q[j])) j--;
+        while (f(q[i],min)) i++;
+        while (f(min,q[j])) j--;
         if(i<=j){q.swap(i,j);i++;j--;}
     }
     if(l<j) sort(q,l,j,f);
