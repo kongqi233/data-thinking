@@ -54,7 +54,7 @@ Status Trade_AllInfo(TradeData& tr,AccountData& acc){
         char n1,n2;
         do{
             system("cls");
-            cout<<"tradeID"<<" "<<"type"<<" "<<"name"<<" "<<"cardID"<<" "<<"another name"<<" "<<"another cardID"<<" "<<"time"<<" "<<"info"<<endl;
+            cout<<left<<setw(18)<<"交易流水号"<<setw(18)<<"交易类型"<<setw(18)<<"交易人姓名"<<setw(18)<<"交易卡号"<<setw(18)<<"被转账人姓名"<<setw(18)<<"被转账人卡号"<<setw(18)<<"交易金额"<<setw(18)<<"交易时间"<<setw(18)<<"交易备注"<<endl;
             for(int i=page*shownub;i<page*shownub+shownub&&i<tr.getTrNumber();i++){
                 cout<<tr.getTrades()[i]<<endl;
             }
@@ -136,6 +136,5 @@ Status Trade_AllInfo(TradeData& tr,AccountData& acc){
                 }
             }
         } while (n1!='q');
-        system("cls");
     }
 }

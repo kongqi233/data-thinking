@@ -19,6 +19,8 @@ int login(int flag=1){
             cout<<"|                管理员登录                 |"<<endl;
             cout<<"|                                           |"<<endl;
             cout<<"|                 用户注册                  |"<<endl;
+            cout<<"|                                           |"<<endl;
+            cout<<"|(w/W)上移  (s/S)下移   (e/E)进入  (q/Q)退出|"<<endl;
 
         }
         else if(flag==2){
@@ -27,6 +29,8 @@ int login(int flag=1){
             cout<<"|          ----  管理员登录  ----           |"<<endl;
             cout<<"|                                           |"<<endl;
             cout<<"|                 用户注册                  |"<<endl;
+            cout<<"|                                           |"<<endl;
+            cout<<"|(w/W)上移  (s/S)下移   (e/E)进入  (q/Q)退出|"<<endl;
         }
         else if(flag==3){
             cout<<"|                 用户登录                  |"<<endl;
@@ -34,6 +38,8 @@ int login(int flag=1){
             cout<<"|                管理员登录                 |"<<endl;
             cout<<"|                                           |"<<endl;
             cout<<"|           ----  用户注册  ----            |"<<endl;
+            cout<<"|                                           |"<<endl;
+            cout<<"|(w/W)上移  (s/S)下移   (e/E)进入  (q/Q)退出|"<<endl;
         }
         cout<<"|                                           |"<<endl;
         cout<<"============================================="<<endl;
@@ -147,9 +153,9 @@ Status admin_account(AccountData& data,TradeData& tr){
                 <<setw(16)<<"身份证号:"<<acc->IDnumber<<"\n"
                 <<setw(16)<<"余额:"<<acc->balance<<"\n"
                 <<setw(16)<<"开户时间:"<<acc->year<<"-"<<setw(2)<<setfill('0')<<acc->month<<"-"<<setw(2)<<acc->day<<" "
-                <<setw(2)<<acc->hour<<":"<<setw(2)<<acc->minute<<":"<<setw(2)<<acc->second<<setfill(' ')
+                <<setw(2)<<acc->hour<<":"<<setw(2)<<acc->minute<<":"<<setw(2)<<acc->second<<setfill(' ')<<"\n"
                 <<setw(16)<<"是否销户:"<<(acc->tag?"是\n":"否\n")
-                <<setw(16)<<"销户时间:"<<setw(4)<<acc->xyear<<"-"<<setw(2)<<setfill('0')<<acc->xmonth<<"-"<<setw(2)<<acc->xday<<" "
+                <<setw(16)<<"销户时间:"<<setw(4)<<setfill('0')<<acc->xyear<<"-"<<setw(2)<<acc->xmonth<<"-"<<setw(2)<<acc->xday<<" "
                 <<setw(2)<<acc->xhour<<":"<<setw(2)<<acc->xminute<<":"<<setw(2)<<acc->xsecond<<setfill(' ')<<endl;
                 cout<<"--------------------------------------"<<endl;
                 cout<<"------B/b 返回  F/f 查看交易记录------"<<endl;
