@@ -40,6 +40,7 @@ Status Trade_AllInfo(TradeData& tr,AccountData& acc){
     int page=0,pages=ceil(tr.getTrNumber()/shownub);
     if(tr.getTrNumber()==0){
         cout<<"暂无交易信息"<<endl;
+        _sleep(1000);
     }
     else{
         char n1,n2;

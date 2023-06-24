@@ -115,5 +115,6 @@ void Login(AccountData&,TradeData&);
 Status Account_info(AccountData&);
 Status Trade_AllInfo(TradeData&,AccountData&);
 Status transfer(Account&,AccountData&,TradeData&);
+string getpass(void);
 
 #endif

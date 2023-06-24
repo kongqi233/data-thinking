@@ -51,7 +51,7 @@ Status transfer(Account& account,AccountData& accdata,TradeData& trade)
                 cout<<"请输入账户密码:"<<endl;
                 if(pass!=account.password)
                 {
-                    cin>>pass;
+                    pass=getpass();
                     if(pass!=account.password)
                     {
                         system("cls");

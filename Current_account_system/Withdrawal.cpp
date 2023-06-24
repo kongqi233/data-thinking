@@ -29,7 +29,7 @@ Status Withdrawal(Account& account,TradeData& trade){
                 cout<<"取款金额:"<<n<<endl;
                 cout<<"请输入账户密码:"<<endl;
                 if(pass!=account.password){
-                    cin>>pass;
+                    pass=getpass();
                     if(pass!=account.password){
                         system("cls");
                         cout<<"密码错误，请重新输入!"<<endl;

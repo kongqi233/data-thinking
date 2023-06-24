@@ -3,6 +3,7 @@
 */
 #include<iostream>
 #include<iomanip>
+#include<conio.h>
 #include "ExternFile.h"
 using namespace std;
 Status Account_Closure(Account &a,AccountData& acc){
@@ -13,7 +14,7 @@ Status Account_Closure(Account &a,AccountData& acc){
         cout<<setw(16)<<"是否确"<<"认销户"<<endl;
         cout<<"---------------------------------"<<endl;
         cout<<setw(16)<<"Y/y 确认 "<<" N/n 取消"<<endl;
-        cin>>c;
+        c=_getch();
         if(c!='N'&&c!='n'&&c!='Y'&&c!='y'){
             system("cls");
             cout<<"输入错误!"<<endl;
@@ -38,7 +39,7 @@ Status Account_Closure(Account &a,AccountData& acc){
                 system("cls");
                 cout<<"请输入密码验证:"<<endl;
                 if(pass!=a.password){
-                    cin>>pass;
+                    pass=getpass();
                     if(pass=="B"||pass=="b")
                         return ERROR;
                 }else cout<<"******"<<endl;

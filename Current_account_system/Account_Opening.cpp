@@ -24,7 +24,7 @@ Status CreateCheck(Account& account){//开户确认
     do{
         system("cls");
         cout<<"请重复您的密码:"<<endl;
-        cin>>temp;
+        temp=getpass();
         if(temp.size()==1&&temp[0]=='b'||temp[0]=='B')
             return ERROR;
     }while(temp!=account.password);
@@ -96,10 +96,10 @@ Status Account_Creating(Account& account){//获取开户信息
     else cout<<account.IDnumber<<endl;
     cout<<"请输入您的密码:"<<endl;
     if(account.password==""){
-        Status s=CreateBack(temp);
-        if(s==OK){
+        temp=getpass();
+        if(temp!="B"&&temp!="b"&&temp!="E"&&temp!="e"){
             account.password=temp;
-        }else if(s==ERROR){
+        }else if(temp=="B"||temp=="b"){
             account.IDnumber="";
             return ERROR;
         }else return EXIT;

@@ -53,15 +53,17 @@ string getpass(){
     char c;
     do {
         c=_getch();
-        if(c=='8'){
+        if(c==8){
             printf("\b \b");
             s.pop_back();
         }
         else {
-            putchar('*');
-            s.push_back(c);
+            if(c!=13){
+                putchar('*');
+                s.push_back(c);
+            }
         }
-    }while (c!='13');
+    }while(c!=13);
     return s;
 }
 Status user(Account& acc,AccountData& data,TradeData& tr){
@@ -123,12 +125,45 @@ Status user(Account& acc,AccountData& data,TradeData& tr){
        }
     }while(1);
 }
-Status admin_account(){
-    return OK;
+Status admin_account(AccountData& acc,TradeData& tr){
+    do{
+        system("cls");
+        cout<<"请输入您要查询的账户卡号:"<<endl;
+        string ID;
+        cin>>ID;
+        Account* a;
+        if(ID=="B"||ID=="b")
+            return OK;
+        a=acc.find(ID,2);
+        if(a!=nullptr){
+            char c;
+            do{
+                system("cls");
+                cout<<setw(16)<<"姓名:"<<a->name<<"\n"
+                <<setw(16)<<"性别:"<<(a->sex==Sex::MALE?"男":"女")<<"\n"
+                <<setw(16)<<"手机号:"<<a->telephone<<"\n"
+                <<setw(16)<<"卡号:"<<a->cardID<<"\n"
+                <<setw(16)<<"身份证号:"<<a->IDnumber<<"\n"
+                <<setw(16)<<"余额:"<<a->balance<<"\n";
+                cout<<"--------------------------------------"<<endl;
+                cout<<"------B/b 返回  F/f 查看交易记录------"<<endl;
+                c=_getch();
+                if(c=='F'||c=='f'){
+                    Transactions(*a,tr);
+                }
+            }while(c!='B'&&c!='b');
+        }
+        else{
+            system("cls");
+            cout<<"账户输入错误!"<<endl;
+            _sleep(1000);
+        }
+    }while(1);
 }
 Status admin(AccountData& acc,TradeData& tr){
     char c;
     do{
+        system("cls");
         cout<<"                   账户管理                    "<<endl;
         cout<<"账户数量:"<<acc.getAccNumber()<<"\t\t已销户账户:"<<acc.getCloNumber()<<endl;
         cout<<"-------------------------------------------------------------"<<endl;
@@ -137,7 +172,7 @@ Status admin(AccountData& acc,TradeData& tr){
         c=_getch();
         switch(c){
         case '1':
-            admin_account();
+            admin_account(acc,tr);
             break;
         case '2':
             Account_info(acc);
@@ -167,7 +202,7 @@ void Login(AccountData& acc,TradeData& tr){
                 cout<<"请输入您的账号:";
                 cin>>ID;
                 cout<<"请输入您的密码:";
-                cin>>pass;
+                pass=getpass();
                 system("cls");
                 if(!(account=acc.find(ID,0))&&!(account=acc.find(ID,1)))
                    cout<<"账号输入错误!"<<endl;
@@ -184,14 +219,17 @@ void Login(AccountData& acc,TradeData& tr){
             do{
                 system("cls");
                 cout<<"请输入管理员账号:";
-                cin>>ID;
+                ID=getpass();
+                cout<<endl;
                 cout<<"请输入管理员密码:";
-                cin>>pass;
+                pass=getpass();
                 system("cls");
                 if(ID!=ADMIN||pass!=ADMIN_PASS)
                     cout<<"账号或密码错误!"<<endl;
                 else{
                     cout<<"登录成功，欢迎管理员!"<<endl;
+                    _sleep(1000);
+                    system("cls");
                     if(admin(acc,tr)) flag=-1;
                 }
                 _sleep(1000);
