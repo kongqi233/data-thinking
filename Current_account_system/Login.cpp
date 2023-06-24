@@ -53,15 +53,16 @@ string getpass(){
     char c;
     do {
         c=_getch();
-        if(c=='8'){
+        if(c==8){
             printf("\b \b");
             s.pop_back();
         }
-        else {
+        else if(c!=13){
             putchar('*');
             s.push_back(c);
         }
-    }while (c!='13');
+    }while (c!=13);
+    putchar('\n');
     return s;
 }
 Status user(Account& acc,AccountData& data,TradeData& tr){
