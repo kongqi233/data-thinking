@@ -3,6 +3,8 @@
 */
 #include<iostream>
 #include<iomanip>
+#include<math.h>
+#include<conio.h>
 #include "ExternFile.h"
 using namespace std;
 Status Transactions(Account& acc,TradeData& tr){
@@ -12,7 +14,7 @@ Status Transactions(Account& acc,TradeData& tr){
     cout<<"-------------------------------------"<<endl;
     for(int i=0;i<acc.tradeID.size();++i){
         temp=acc.tradeID[i];
-        info=tr.find(temp);
+        info=*(tr.find(temp));
         cout<<setw(16)<<"交易流水号:"<<info.tradeID<<endl;
         cout<<setw(16)<<"交易类型:"<<(info.type==TradeType::IN?"存款":(info.type==TradeType::OUT?"取款":(info.type==TradeType::TO?"转账(转出)":"转账(转入)")))<<endl;
         cout<<setw(16)<<"姓名:"<<info.name<<endl;
@@ -28,4 +30,36 @@ Status Transactions(Account& acc,TradeData& tr){
         cout<<"-------------------------------------"<<endl;
     }
     return OK;
+}
+Status Trade_AllInfo(TradeData& tr){
+    int shownub=30;
+    int page=0,pages=ceil(tr.getTrNumber()/shownub);
+    if(tr.getTrNumber()==0){
+        cout<<"暂无交易信息"<<endl;
+    }
+    else{
+        char n1,n2;
+        do{
+            system("cls");
+            cout<<"tradeID"<<" "<<"type"<<" "<<"name"<<" "<<"cardID"<<" "<<"another name"<<" "<<"another cardID"<<" "<<"time"<<" "<<"info"<<endl;
+            for(int i=page*shownub;i<page*shownub+shownub;i++){
+                cout<<tr.getTrades()[i]<<endl;
+            }
+            printf("------------------------------------------------%d/%d---------------------------------------------\n",page+1,pages);
+            printf("--------------------------下一页请按 → ，上一页请按 ← ， 退出请按q , 查询请按f---------------------------\n");
+            n1=_getch(),n2=_getch();
+            if(n2==77 && page<pages-1) page++;
+            else if(n2==75 && page>0) page--;
+            else if(n1=='f'){
+                cout<<"请选择查询方式：1.流水号 2.时间 3.账号"<<endl;
+                int n;cin>>n;
+                TradeInfo* p;
+                switch (n) {
+                default:
+                    break;
+                }
+            }
+        } while (n1!='q');
+        system("cls");
+    }
 }

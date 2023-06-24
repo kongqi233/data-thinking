@@ -13,6 +13,7 @@ AccountData::AccountData(string path){
         getline(in,s);
         long long l=stoi(s);
         accountsNumber=l;
+        closureNumber=0;
         accounts.reserve(l);
         phone.reserve(l);
         cardID.reserve(l);
@@ -56,6 +57,8 @@ AccountData::AccountData(string path){
             account.xsecond=stoi(word.substr(12,2));
             getline(sin,word,',');
             account.tag=stoi(word);
+            if(account.tag)
+                closureNumber++;
             getline(sin,word,',');
             istringstream t;
             string tt;
@@ -126,6 +129,7 @@ Account* AccountData::find(const string &s,int n){
     switch (n) {
         case 0: p=phone;break;
         case 1: p=IDnumber;break;
+        default:break;
     }
     int t=-1,l=0,r=p.size()-1,mid;
     while (l<=r) {
@@ -136,11 +140,7 @@ Account* AccountData::find(const string &s,int n){
             t=p[mid].value;break;
         }
     }
-<<<<<<< HEAD
     if(t==-1) return nullptr;
-=======
-    if(t==-1) cout<<"输入错误"<<endl;
->>>>>>> f874f899d840b4f6038ee0b0542c89d86a1feb5d
     else return &accounts[t];
 }
 
@@ -153,9 +153,6 @@ void AccountData::addAccount(const Account& acc){
     return;
 }
 
-long long AccountData::getAccNumber() const{
-    return accountsNumber;
-}
 
 // Account& AccountData::test(){
 //     return accounts[accounts.size()-1];

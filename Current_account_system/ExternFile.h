@@ -21,6 +21,8 @@
 #define IDNUMBER_SIZE 18
 #define PASSWORD_SIZE 6
 #define TRADEID_SIZE 12
+#define ADMIN "admin"
+#define ADMIN_PASS "admin"
 using namespace std;
 typedef int Status;
 enum Sex{
@@ -40,12 +42,7 @@ struct Account{
     bool tag;
     myVector<string> tradeID;
     friend ostream& operator<<(ostream& os,const Account& acc){
-        os<<setw(16)<<"姓名:"<<acc.name<<"\n"
-        <<setw(16)<<"性别:"<<(acc.sex==Sex::MALE?"男":"女")<<"\n"
-        <<setw(16)<<"手机号:"<<acc.telephone<<"\n"
-        <<setw(16)<<"卡号:"<<acc.cardID<<"\n"
-        <<setw(16)<<"身份证号:"<<acc.IDnumber<<"\n"
-        <<setw(16)<<"余额:"<<acc.balance<<"\n";
+        os<<acc.SID<<"\t"<<acc.name<<"\t"<<acc.sex<<"\t"<<acc.telephone<<"\t"<<acc.cardID<<"\t"<<acc.IDnumber<<"\t"<<acc.password<<"\t";
         return os;
     }
 };
@@ -62,6 +59,12 @@ struct TradeInfo{
     double money;//交易金额
     short int year,month,day,hour,minute,second;//交易时间
     string info="无";//交易备注
+    friend ostream& operator<<(ostream& os,const TradeInfo& tr){
+        os<<tr.tradeID<<"\t"<<tr.type<<"\t"<<tr.name<<"\t"<<tr.cardID<<"\t"<<tr.othername<<"\t"<<tr.otherID<<"\t"<<tr.money<<"\t"
+        <<tr.year<<"-"<<setw(2)<<setfill('0')<<tr.month<<"-"<<setw(2)<<tr.day<<" "
+        <<setw(2)<<tr.hour<<":"<<setw(2)<<tr.minute<<":"<<setw(2)<<tr.second<<setfill(' ')<<"\t"<<tr.info;
+        return os;
+    }
 };
 struct stoipair{
     string key;
@@ -71,13 +74,16 @@ struct stoipair{
 class AccountData{
     myVector<Account> accounts;
     long long accountsNumber;
+    long long closureNumber;
     public:
     myVector<stoipair> phone,cardID,IDnumber;
     template<typename U,typename T>
     static void sort(T& q,int l,int r,std::function<bool(U,U)> const &f);
     Account* find(const string& s,int n);
     void addAccount(const Account&);
-    long long getAccNumber()const;
+    long long getAccNumber()const{return accountsNumber;}
+    void setCloNumber(){closureNumber++;}
+    long long getCloNumber(){return closureNumber;}
     const myVector<Account>& getAccounts()const{return accounts;}
     //Account& test();
     AccountData(string path=ACCOUNT_PATH);
@@ -88,9 +94,9 @@ class TradeData{
     long long tradeNumber;
 public:
     void addTrade(const TradeInfo&);
-    TradeInfo& find(const string&);
+    TradeInfo* find(const string&);
     long long getTrNumber();
-    Status ShowAllInfo();
+    const myVector<TradeInfo>& getTrades()const{return trade;}
     //TradeInfo& test();
     TradeData(string path=TRADELOG_PATH);
     ~TradeData();
@@ -104,11 +110,9 @@ Status AccountWrite(AccountData&,Account&);
 Status Deposit(Account&,TradeData&);
 Status CreateTradeInfo(TradeData&,Account&,Account&,TradeType,double,string ="无");
 Status Transactions(Account& acc,TradeData& tr);
-Status Account_Closure(Account&);
-<<<<<<< HEAD
+Status Account_Closure(Account&,AccountData&);
 void Login(AccountData&,TradeData&);
-=======
-Status Account_info(const AccountData& data);
->>>>>>> f874f899d840b4f6038ee0b0542c89d86a1feb5d
+Status Account_info(AccountData&);
+Status Trade_AllInfo(TradeData&);
 
 #endif

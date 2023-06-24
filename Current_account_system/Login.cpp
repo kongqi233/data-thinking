@@ -1,5 +1,6 @@
 #include<iostream>
 #include<iomanip>
+#include<conio.h>
 #include"ExternFile.h"
 using namespace std;
 int login(int flag=1){
@@ -34,8 +35,7 @@ int login(int flag=1){
         }
         cout<<"|                                           |"<<endl;
         cout<<"============================================="<<endl;
-        c=getchar();
-        getchar();
+        c=_getch();
         if((c=='w'||c=='W')&&flag>1)
             flag--;
         else if((c=='s'||c=='S')&&flag<3)
@@ -46,16 +46,16 @@ int login(int flag=1){
             return flag;
     }while(1);
 }
-Status user(Account& acc,TradeData& tr){
+Status user(Account& acc,AccountData& data,TradeData& tr){
     do{
         system("cls");
         char c;
         cout<<"姓名:"<<acc.name<<endl;
         cout<<"账号:"<<acc.cardID.substr(0,4)<<" **** **** "<<acc.cardID.substr(12,4)<<endl;
-        cout<<"------------------------------------------------------------------"<<endl;
-        cout<<"1.余额 2.存款 3.取款 4.转账 5.账户 6.交易记录 7.退出登录 8.退出系统"<<endl;
-        cout<<"------------------------------------------------------------------"<<endl;
-        cin>>c;
+        cout<<"------------------------------------------------------------------------"<<endl;
+        cout<<"1.余额 2.存款 3.取款 4.转账 5.账户 6.销户 7.交易记录 8.退出登录 9.退出系统"<<endl;
+        cout<<"------------------------------------------------------------------------"<<endl;
+        c=_getch();
         switch(c){
        case '1':
         Account_Balance(acc);
@@ -68,23 +68,67 @@ Status user(Account& acc,TradeData& tr){
         break;
        case '4':
         break;
-       case '5':
+       case '5':{
         system("cls");
-        cout<<acc;
+        string pass;
+        do{
+            system("cls");
+            cout<<"请输入账户密码:";
+            cin>>pass;
+        }while(pass!=acc.password&&pass!="b"&&pass!="B");
+        if(pass=="b"||pass=="B")
+            break;
+        system("cls");
+        cout<<setw(16)<<"姓名:"<<acc.name<<"\n"
+        <<setw(16)<<"性别:"<<(acc.sex==Sex::MALE?"男":"女")<<"\n"
+        <<setw(16)<<"手机号:"<<acc.telephone<<"\n"
+        <<setw(16)<<"卡号:"<<acc.cardID<<"\n"
+        <<setw(16)<<"身份证号:"<<acc.IDnumber<<"\n"
+        <<setw(16)<<"余额:"<<acc.balance<<"\n";
         system("pause");
         break;
+        }
        case '6':
-        Transactions(acc,tr);
+        Account_Closure(acc,data);
         break;
        case '7':
-        return OK;
+        Transactions(acc,tr);
+        break;
        case '8':
+        return OK;
+       case '9':
         exit(0);
         break;
        default:
         break;
        }
     }while(1);
+}
+Status admin_account(){
+    return OK;
+}
+Status admin(AccountData& acc,TradeData& tr){
+    char c;
+    do{
+        cout<<"                   账户管理                    "<<endl;
+        cout<<"账户数量:"<<acc.getAccNumber()<<"\t\t已销户账户:"<<acc.getCloNumber()<<endl;
+        cout<<"-------------------------------------------------------------"<<endl;
+        cout<<"1.账户查看 2.所有账户信息 3.所有交易信息 4.返回登入 5.退出系统"<<endl;
+        cout<<"-------------------------------------------------------------"<<endl;
+        c=_getch();
+        switch(c){
+        case '1':
+            admin_account();
+            break;
+        case '2':
+            Account_info(acc);
+            break;
+        case '3':
+            Trade_AllInfo(tr);
+            break;
+        }
+    }while(1);
+    return OK;
 }
 void Login(AccountData& acc,TradeData& tr){
     int flag;
@@ -109,13 +153,27 @@ void Login(AccountData& acc,TradeData& tr){
                     cout<<"密码错误!"<<endl;
                 else{
                     cout<<"登录成功!"<<endl;
-                    if(user(*account,tr)) flag=-1;
+                    if(user(*account,acc,tr)) flag=-1;
                 }
                 _sleep(1000);
             }while(flag!=-1);
         }
         else if(flag==2){
-
+            do{
+                system("cls");
+                cout<<"请输入管理员账号:";
+                cin>>ID;
+                cout<<"请输入管理员密码:";
+                cin>>pass;
+                system("cls");
+                if(ID!=ADMIN||pass!=ADMIN_PASS)
+                    cout<<"账号或密码错误!"<<endl;
+                else{
+                    cout<<"登录成功，欢迎管理员!"<<endl;
+                    if(admin(acc,tr)) flag=-1;
+                }
+                _sleep(1000);
+            }while(flag!=-1);
         }
         else if(flag==3){
             Account_Opening(acc);

@@ -5,7 +5,7 @@
 #include<iomanip>
 #include "ExternFile.h"
 using namespace std;
-Status Account_Closure(Account &a){
+Status Account_Closure(Account &a,AccountData& acc){
     char c;
     string pass="",ID="";
     do{
@@ -52,6 +52,7 @@ Status Account_Closure(Account &a){
         cout<<"验证成功，即将销户！"<<endl;
         _sleep(1000);
         a.tag=true;
+        acc.setCloNumber();
         system("cls");
         cout<<"销户成功！"<<endl;
         _sleep(1000);

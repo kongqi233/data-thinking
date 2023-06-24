@@ -3,6 +3,7 @@
 */
 #include<iostream>
 #include<iomanip>
+#include<conio.h>
 #include "ExternFile.h"
 using namespace std;
 Status CreateBack(string& judge){//判回退
@@ -19,6 +20,7 @@ Status CreateBack(string& judge){//判回退
 Status CreateCheck(Account& account){//开户确认
     system("cls");
     string temp;
+    char c;
     do{
         system("cls");
         cout<<"请重复您的密码:"<<endl;
@@ -37,10 +39,10 @@ Status CreateCheck(Account& account){//开户确认
         cout<<"----------------------------------"<<endl;
         cout<<setw(16)<<"Y/y 确认 "<<" N/n 返回"<<endl;
         cout<<"----------------------------------"<<endl;
-        cin>>temp;
-        if(temp=="N"||temp=="n")
+        c=_getch();
+        if(c=='N'||c=='n')
             return ERROR;
-    }while(temp!="Y"&&temp!="y"&&temp!="N"&&temp!="n");
+    }while(c!='Y'&&c!='y'&&c!='N'&&c!='n');
     return OK;
 }
 Status Account_Creating(Account& account){//获取开户信息
@@ -146,7 +148,7 @@ Status Account_Opening(AccountData& data){
         cout<<"----------------------------------"<<endl;
         cout<<setw(16)<<setfill(' ')<<"B/b 返回登录 "<<"E/e 退出系统"<<endl;
         cout<<"----------------------------------"<<endl;
-        cin>>c;
+        c=_getch();
         if(c=='E'||c=='e')
             exit(0);
     }while(c!='B'&&c!='b'&&c!='E'&&c!='e');
