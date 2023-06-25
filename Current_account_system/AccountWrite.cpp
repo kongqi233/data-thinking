@@ -11,5 +11,14 @@ Status AccountWrite(AccountData& data,Account& account){
     account.SID=account.SID.substr(0,(11-temp.size()))+temp;
     account.tag=false;
     data.addAccount(account);
+    data.sort<stoipair>(data.phone, 0, data.phone.size()-1, [](stoipair a,stoipair b){
+        return a.key<b.key;
+    });
+    data.sort<stoipair>(data.cardID, 0, data.cardID.size()-1, [](stoipair a,stoipair b){
+        return a.key<b.key;
+    });
+    data.sort<stoipair>(data.IDnumber, 0, data.IDnumber.size()-1, [](stoipair a,stoipair b){
+        return a.key<b.key;
+    });
     return OK;
 }
