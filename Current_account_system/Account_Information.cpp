@@ -1,7 +1,6 @@
 /*
 *显示所有账户信息(管理员模式)
 */
-#include <cstddef>
 #include <iostream>
 #include <conio.h>
 #include <math.h>
@@ -39,7 +38,9 @@ Status Account_info(AccountData& data){
                         p=data.find(s,0);
                         if(p!=nullptr){
                             system("cls");
-                            cout<<"SID"<<"     name"<<"   sex       telephone         cardID                   IDnumber           balance       open time              close time         tag"<<endl;
+                            cout<<"SID"<<"            "<<"name";
+                            cout<<"         "<<"sex"<<"            "<<"telephone"<<"         "<<"cardID"<<"          "<<"IDnumber"<<"      ";
+                            cout<<"   balance"<<"           "<<"open time"<<"            "<<"close time"<<"        "<<"tag"<<endl;
                             cout<<*p<<endl;
                             system("pause");
                         }
@@ -55,7 +56,9 @@ Status Account_info(AccountData& data){
                         p=data.find(s,2);
                         if(p!=nullptr){
                             system("cls");
-                            cout<<"SID"<<"     name"<<"   sex       telephone         cardID                   IDnumber           balance       open time              close time         tag"<<endl;
+                            cout<<"SID"<<"            "<<"name";
+                            cout<<"         "<<"sex"<<"            "<<"telephone"<<"         "<<"cardID"<<"          "<<"IDnumber"<<"      ";
+                            cout<<"   balance"<<"           "<<"open time"<<"            "<<"close time"<<"        "<<"tag"<<endl;
                             cout<<*p<<endl;
                             system("pause");
                         }
@@ -71,7 +74,9 @@ Status Account_info(AccountData& data){
                         p=data.find(s,1);
                         if(p!=nullptr){
                             system("cls");
-                            cout<<"SID"<<"     name"<<"   sex       telephone         cardID                   IDnumber           balance       open time              close time         tag"<<endl;
+                            cout<<"SID"<<"            "<<"name";
+                            cout<<"         "<<"sex"<<"            "<<"telephone"<<"         "<<"cardID"<<"          "<<"IDnumber"<<"      ";
+                            cout<<"   balance"<<"           "<<"open time"<<"            "<<"close time"<<"        "<<"tag"<<endl;
                             cout<<*p<<endl;
                             system("pause");
                         }
