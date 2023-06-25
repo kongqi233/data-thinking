@@ -21,7 +21,8 @@ public:
         addlist(args...);
     }
     ~myVector(){
-        delete[] data;
+        if(data)
+            delete[] data;
     }
     std::size_t size() const {
         return sizen;
