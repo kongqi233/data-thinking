@@ -17,7 +17,9 @@ Status Account_info(AccountData& data){
         char n1,n2;
         do{
             system("cls");
-            cout<<"SID"<<"     name"<<"   sex       telephone         cardID                   IDnumber           balance       open time              close time         tag"<<endl;
+            cout<<"SID"<<"            "<<"name";
+            cout<<"         "<<"sex"<<"            "<<"telephone"<<"         "<<"cardID"<<"          "<<"IDnumber"<<"      ";
+            cout<<"   balance"<<"           "<<"open time"<<"            "<<"close time"<<"        "<<"tag"<<endl;
             for(int i=page*shownub;i<page*shownub+shownub&&i<data.getAccNumber();i++){
                 cout<<data.getAccounts()[i]<<endl;
             }
