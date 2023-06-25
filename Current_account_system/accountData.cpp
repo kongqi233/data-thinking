@@ -125,20 +125,20 @@ void AccountData::sort(T& q,int l,int r,std::function<bool(U,U)> const &f){
 }
 
 Account* AccountData::find(const string &s,int n){
-    myVector<stoipair> &p=cardID;
+    myVector<stoipair> *p;
     switch (n) {
-        case 0: p=phone;break;
-        case 1: p=IDnumber;break;
-        case 2: p=cardID;break;
-        default:break;
+        case 0: p=&phone;break;
+        case 1: p=&IDnumber;break;
+        case 2: p=&cardID;break;
+        default:p=&cardID;break;
     }
-    int t=-1,l=0,r=p.size()-1,mid;
+    int t=-1,l=0,r=p->size()-1,mid;
     while (l<=r) {
         mid=l+((r-l)>>1);
-        if(p[mid].key<s) l=mid+1;
-        else if(p[mid].key>s) r=mid-1;
+        if((*p)[mid].key<s) l=mid+1;
+        else if((*p)[mid].key>s) r=mid-1;
         else{
-            t=p[mid].value;break;
+            t=(*p)[mid].value;break;
         }
     }
     if(t==-1) return nullptr;
