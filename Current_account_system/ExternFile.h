@@ -89,6 +89,7 @@ class AccountData{
     void setCloNumber(){closureNumber++;}
     long long getCloNumber(){return closureNumber;}
     const myVector<Account>& getAccounts()const{return accounts;}
+    myVector<Account>& getAccounts(){return accounts;}
     //Account& test();
     AccountData(string path=ACCOUNT_PATH);
     ~AccountData();

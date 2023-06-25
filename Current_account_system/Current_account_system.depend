@@ -55,7 +55,7 @@
 	<bits/stdc++.h>
 	"ExternFile.h"
 
-1687624127 e:\git\gitproject\data-thinking\current_account_system\externfile.h
+1687681044 e:\git\gitproject\data-thinking\current_account_system\externfile.h
 	<algorithm>
 	<functional>
 	<iostream>
@@ -80,10 +80,11 @@
 	<iostream>
 	"ExternFile.h"
 
-1687678664 source:e:\git\gitproject\data-thinking\current_account_system\main.cpp
+1687686522 source:e:\git\gitproject\data-thinking\current_account_system\main.cpp
 	<iostream>
 	<iomanip>
-	<bits/stdc++.h>
+	<time.h>
+	<fstream>
 	"ExternFile.h"
 
 1687096995 source:e:\git\gitproject\data-thinking\current_account_system\test.cpp
@@ -111,7 +112,7 @@
 1687677059 e:\git\gitproject\data-thinking\current_account_system\myvector.cpp
 	<iostream>
 
-1687676736 source:e:\git\gitproject\data-thinking\current_account_system\accountdata.cpp
+1687680130 source:e:\git\gitproject\data-thinking\current_account_system\accountdata.cpp
 	<iostream>
 	<fstream>
 	<sstream>
@@ -132,7 +133,7 @@
 	<time.h>
 	"ExternFile.h"
 
-1687182652 source:e:\git\gitproject\data-thinking\current_account_system\gettime.cpp
+1687685869 source:e:\git\gitproject\data-thinking\current_account_system\gettime.cpp
 	<iostream>
 	<time.h>
 	"ExternFile.h"
